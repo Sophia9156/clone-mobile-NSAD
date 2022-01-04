@@ -56,13 +56,13 @@ main{
   section{
     ul{
       position: relative;
-      a>li{
-        img{width: 100%; max-width: 760px;}
+      li{
+        img{width: 100%; max-width: 760px; vertical-align: middle;}
       }
     }
   }
 }
-.slide-bg{position: relative; overflow: hidden;}
+.slide-bg{position: relative; overflow: hidden; margin-bottom: 10px;}
 .fake{
   width: 100%; max-width: 760px;
   opacity: 0;

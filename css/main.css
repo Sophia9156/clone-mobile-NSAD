@@ -121,14 +121,16 @@ main section ul {
   position: relative;
 }
 
-main section ul a > li img {
+main section ul li img {
   width: 100%;
   max-width: 760px;
+  vertical-align: middle;
 }
 
 .slide-bg {
   position: relative;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .fake {
