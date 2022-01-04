@@ -425,6 +425,7 @@ header > div {
   position: absolute;
   left: 10px;
   bottom: 50px;
+  background-color: #fff;
 }
 
 .hidden-search .hidden-search-close span {

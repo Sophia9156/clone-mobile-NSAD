@@ -121,13 +121,14 @@ main section ul {
   position: relative;
 }
 
-main section ul li img {
+main section ul a > li img {
   width: 100%;
   max-width: 760px;
 }
 
 .slide-bg {
   position: relative;
+  overflow: hidden;
 }
 
 .fake {
@@ -147,13 +148,17 @@ main section ul li img {
   0% {
     opacity: 1;
   }
-  2% {
+  3% {
+    -webkit-transform: translate(5px, -2px);
+            transform: translate(5px, -2px);
+  }
+  4% {
     -webkit-transform: translate(-5px, 2px);
             transform: translate(-5px, 2px);
   }
-  3% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
+  5% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
   32% {
     opacity: 1;
@@ -175,13 +180,17 @@ main section ul li img {
   0% {
     opacity: 1;
   }
-  2% {
+  3% {
+    -webkit-transform: translate(5px, -2px);
+            transform: translate(5px, -2px);
+  }
+  4% {
     -webkit-transform: translate(-5px, 2px);
             transform: translate(-5px, 2px);
   }
-  3% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
+  5% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
   32% {
     opacity: 1;
@@ -295,5 +304,73 @@ main section ul li img {
   width: 33%;
   height: 1px;
   background-color: #fff;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.event.active {
+  opacity: 1;
+}
+
+.event {
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.eventFake {
+  width: 100%;
+  max-width: 760px;
+  opacity: 0;
+}
+
+.event-slide-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 203%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.event-slide-bg .eventSlide {
+  width: 102%;
+  -webkit-box-shadow: 10px 10px 10px #ddd;
+          box-shadow: 10px 10px 10px #ddd;
+}
+
+.event-status {
+  width: 95%;
+  height: 5px;
+  margin: 20px auto;
+  background-color: #ddd;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-status span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 /*# sourceMappingURL=main.css.map */
