@@ -327,6 +327,10 @@ main section ul li img {
   opacity: 0;
 }
 
+.event-bg {
+  position: relative;
+}
+
 .event-slide-bg {
   position: absolute;
   left: 0;
@@ -375,4 +379,4 @@ main section ul li img {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=index.css.map */

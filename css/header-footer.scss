@@ -1,4 +1,4 @@
-@import '_common.scss';
+@import '_common.scss'; 
 @import '_mixin.scss';
 
 
@@ -94,13 +94,13 @@ header > div{
   .hidden-menu-top{
     width: 90%;
     margin: 0 auto;
-    padding: 60px 20px;
-    a>img{width: 165px;}
+    padding: 60px 20px 10% 20px;
+    a>img{width: 40%;}
 
     .hidden-menu-menu{
-      margin: 40px 0;
+      margin: 10% 0;
       li{
-        padding: 5px 0;
+        padding: 2% 0;
         a{
           font-size: 22px; color: #fff;
           font-style: italic; font-weight: 600;
@@ -111,7 +111,7 @@ header > div{
 
     .hidden-menu-sub{
       li{
-        padding: 5px 0;
+        padding: 2% 0;
         a{
           font-size: 15px; color: rgba(255,255,255,0.8);
           font-weight: 400;
@@ -121,7 +121,7 @@ header > div{
   }
   .hidden-menu-bottom{
     width: 100%;
-    padding-bottom: 100px;
+    margin-bottom: 20%;
     @include flex(center,center,nowrap,row);
     li{
       &::before{

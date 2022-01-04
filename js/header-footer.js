@@ -1,5 +1,5 @@
-$('header').load('inc.html header > div',headerFun);
-$('footer').load('inc.html footer > div');
+$('header').load('header-footer.html header > div',headerFun);
+$('footer').load('header-footer.html footer > div');
 
 function headerFun(){
   const burger = document.querySelector('.burger');
