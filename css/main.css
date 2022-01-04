@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap");
+body {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure {
+  margin: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+image {
+  vertical-align: middle;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.material-icons-outlined {
+  font-family: 'Material Icons';
+}
+
+.popup {
+  position: absolute;
+  z-index: 11;
+  text-align: center;
+}
+
+.popup .popup-close span {
+  display: block;
+  height: 25px;
+  border-left: 1px solid #000;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+
+.popup .popup-close span:nth-of-type(1) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.popup .popup-close span:nth-of-type(2) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.popup .popup-top {
+  width: 340px;
+  height: 380px;
+  border-radius: 30px;
+  background-color: #fafafa;
+}
+
+.popup .popup-top h3 {
+  padding: 30px 0;
+  font-size: 2.2rem;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+}
+
+.popup .popup-top .popup-content {
+  padding: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.popup .popup-top .popup-content p {
+  margin: 5px 0;
+  font-weight: 300;
+}
+
+.popup .popup-bottom {
+  font-size: 14px;
+  color: #333;
+  font-weight: 300;
+  margin: 3px 20px;
+  text-align: right;
+}
+
+.popup .popup-bottom input {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  border-radius: 100%;
+  vertical-align: middle;
+}
+
+main section ul {
+  position: relative;
+}
+
+main section ul li img {
+  width: 100%;
+  max-width: 760px;
+}
+
+.fake {
+  width: 100%;
+  max-width: 760px;
+  opacity: 0;
+}
+
+.slide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  mix-blend-mode: soft-light;
+}
+
+@-webkit-keyframes mainSlide {
+  0% {
+    opacity: 1;
+  }
+  3% {
+    -webkit-transform: translate(-5px, 2px);
+            transform: translate(-5px, 2px);
+  }
+  4% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  32% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes mainSlide {
+  0% {
+    opacity: 1;
+  }
+  3% {
+    -webkit-transform: translate(-5px, 2px);
+            transform: translate(-5px, 2px);
+  }
+  4% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  32% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes subSlide {
+  0% {
+    opacity: 1;
+  }
+  32% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes subSlide {
+  0% {
+    opacity: 1;
+  }
+  32% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.mainSlide {
+  -webkit-animation: mainSlide 12s ease-in infinite;
+          animation: mainSlide 12s ease-in infinite;
+}
+
+.subSlide {
+  -webkit-animation: subSlide 12s ease-in infinite;
+          animation: subSlide 12s ease-in infinite;
+}
+
+.slide2 {
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+}
+
+.slide3 {
+  -webkit-animation-delay: -8s;
+          animation-delay: -8s;
+}
+/*# sourceMappingURL=main.css.map */
