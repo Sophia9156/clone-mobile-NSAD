@@ -126,6 +126,10 @@ main section ul li img {
   max-width: 760px;
 }
 
+.slide-bg {
+  position: relative;
+}
+
 .fake {
   width: 100%;
   max-width: 760px;
@@ -253,5 +257,43 @@ main section ul li img {
 .slide3 {
   -webkit-animation-delay: -8s;
           animation-delay: -8s;
+}
+
+.slide-status {
+  position: absolute;
+  left: 15px;
+  top: 36%;
+  z-index: 2;
+  width: 110px;
+}
+
+.slide-status p {
+  font-size: 13px;
+  color: #fff;
+}
+
+.slide-status p:nth-of-type(1) {
+  text-align: left;
+}
+
+.slide-status p:nth-of-type(2) {
+  text-align: right;
+}
+
+.slide-status div {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(250, 250, 250, 0.5);
+}
+
+.slide-status div span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 33%;
+  height: 1px;
+  background-color: #fff;
 }
 /*# sourceMappingURL=main.css.map */

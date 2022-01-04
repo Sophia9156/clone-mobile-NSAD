@@ -119,16 +119,16 @@ header > div{
     }
   }
   .hidden-menu-bottom{
-    width: 30%;
-    padding: 50px 0;
-    @include flex(space-between,center,nowrap,row);
+    width: 100%;
+    padding: 100px 0;
+    @include flex(center,center,nowrap,row);
     li{
       &::before{
         content: '';
         display: inline-block;
         height: 10px;
         border-left: 1px solid #fff;
-        margin-right: 15px;
+        margin: 0 15px;
       }
       a{
         font-size: 14px; color: #fff;

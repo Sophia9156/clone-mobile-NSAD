@@ -29,6 +29,18 @@ fetch('js/data.json')
         <img class="slide slide${k+1} subSlide" src="${v}" alt="">
         </li>`;
     })
-    $('section ul').append(imgLi);
+    $('.slide-bg ul').append(imgLi);
   }
 )
+
+let interval, num=0;
+let clear = function(){
+  clearInterval(interval);
+}
+let barMove = function(){
+  clear();
+  interval = setInterval(function(){
+    num++
+    $('.slide-nav').html(`0${num}`);
+  },4000)
+}
