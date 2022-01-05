@@ -23,12 +23,96 @@
 <body>
   <header></header>
   <main>
-    <div class="title-bg">
-      <h3>
-        <span class="glitch glitch1">NEW COLLECTION</span>
-        <span class="glitch glitch2">NEW COLLECTION</span>
-        <span class="glitch glitch3">NEW COLLECTION</span>
-      </h3>
+
+    <div class="title-wrap">
+      <div class="title-bg">
+        <img src="img/new-collection/LIST_NEW_COLLECTION.jpg" alt="">
+      </div>
+      <div class="title-text">
+        <h3>
+          <span class="glitch" data-text="NEW COLLECTION">NEW COLLECTION</span>
+        </h3>
+      </div>
+    </div>
+
+
+    <div class="product-list-wrap">
+      <div class="product-list-category-wrap">
+        <ul class="product-list-category">
+          <li>ALL</li>
+          <li>OUTERS</li>
+          <li>TOPS</li>
+          <li>BOTTOMS</li>
+          <li>ACC</li>
+        </ul>
+        <div class="product-list-top-wrap">
+          <div class="product-list-total-wrap">
+            <span class="product-list-total">TOTAL<em></em></span>
+          </div>
+          <div class="product-list-sort-wrap">
+            <ul class="product-list-view-type">
+              <li id="view-type-list">
+                <span class="material-icons-outlined">
+                format_list_bulleted
+                </span>
+              </li>
+              <li id="view-type-grid">
+                <span class="material-icons-outlined">
+                  grid_view
+                </span>
+              </li>
+            </ul>
+            <select name="sort" id="sort">
+              <option value="none">SORT</option>
+              <option value="new">NEW</option>
+              <option value="low">LOW PRICE</option>
+              <option value="high">HIGH PRICE</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-list-box-wrap">
+        <ul class="product-list-box product-list-box-all">
+          <!-- 
+            <li>
+              <div class="product-img-box">
+                <a href="#">
+                  <img src="${v.src}" alt="">
+                </a>
+              </div>
+              <div class="product-info">
+                <a href="#">
+                  <h4>${v.name}</h4>
+                  <span>${v.price}</span>
+                </a>
+              </div>
+            </li>
+          -->
+        </ul>
+        <ul class="product-list-box product-list-box-outers">
+          <div class="product-empty">상품이 존재하지 않습니다.</div>
+        </ul>
+        <ul class="product-list-box product-list-box-tops">
+          <div class="product-empty">상품이 존재하지 않습니다.</div>
+        </ul>
+        <ul class="product-list-box product-list-box-bottoms">
+          <div class="product-empty">상품이 존재하지 않습니다.</div>
+        </ul>
+        <ul class="product-list-box product-list-box-acc">
+          <div class="product-empty">상품이 존재하지 않습니다.</div>
+        </ul>
+      </div>
+
+      <div class="display-more-wrap">
+        <div class="display-more-text">
+          <span>SHOW MORE</span>
+        </div>
+        <div class="display-more-pic">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
   </main>
   <footer></footer>

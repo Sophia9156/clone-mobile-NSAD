@@ -2,66 +2,106 @@
 @import '_mixin.scss';
 
 
-.title-bg{
-  width: 100%; height: 80vh;
-  background: url("../img/new-collection/LIST_NEW_COLLECTION.jpg") no-repeat;
-  background-size: cover;
-  background-position: 0 0;
-  display: flex; justify-content: center; align-items: center;
-  z-index: -1;
-  h3{
-    width: 85%;
-    border-bottom: 3px solid #fff;
-    text-align: center;
-    position: relative;
+.title-wrap{
+  width: 100%; height: 400px;
+  position: relative;
+  overflow: hidden;
+
+  .title-bg{
+    width: 100%;
+    position: absolute;
+    left: 0; top: 0;
+
+    img{width: 100%; z-index: -1;}
+  }
+
+  .title-text{
+    width: 100%; height: 100%;
+    position: absolute;
+    left: 0; top: 0;
+    @include flex(center,center,nowrap,row);
+
+    h3{
+      width: 85%;
+      border-bottom: 3px solid #fff;
+      text-align: center;
+
+      .glitch{
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: 700;
+        position: relative;
+      
+        &::before{
+          content: attr(data-text);
+          position: absolute;
+          left: -2px; top: 0;
+          color: #fff;
+          overflow: hidden;
+          text-shadow: -2px 0 #fe3a7f;
+          animation: glitch 2s infinite linear;
+        }
+      }
+    }
   }
 }
-.glitch{
-  color: #fff;
-  font-size: 1.7em;
-  font-weight: 700;
-}
-.glitch2,.glitch3{
-  width: 100%;
-  position: absolute;
-  left: -2px; top: 0;
-  color: #fff;
+.title-wrap.active{
+  width: 100%; height: 70px;
+  position: fixed;
+  left: 0; top: 46px;
+  z-index: 8;
   overflow: hidden;
-}
-.glitch2{
-  opacity: 0;
-  // text-shadow: 2px 0 #00ffea;
-  // animation: glitch-animation-1 3s infinite linear;
-}
-.glitch3{
-  text-shadow: -2px 0 #fe3a7f;
-  animation: glitch-animation-2 2s infinite linear;
+
+  .title-bg{
+    width: 100%;
+    position: absolute;
+    left: 0; top: 0;
+
+    img{width: 100%; z-index: -1;}
+  }
+
+  .title-text{
+    width: 100%; height: 100%;
+    position: absolute;
+    left: 0; top: 0;
+    @include flex(center,center,nowrap,row);
+
+    h3{
+      width: 100%;
+      border-bottom: none;
+      text-align: center;
+
+      .glitch{
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: 700;
+        position: relative;
+      
+        &::before{
+          content: attr(data-text);
+          position: absolute;
+          left: -2px; top: 0;
+          color: #fff;
+          overflow: hidden;
+          text-shadow: -2px 0 #fe3a7f;
+          animation: glitch 2s infinite linear;
+        }
+        &::after{
+          content: attr(data-text);
+          position: absolute;
+          width: 100%;
+          left: -2px; top: 0;
+          color: #fff;
+          overflow: hidden;
+          text-shadow: 2px 0 #3afe3a;
+          animation: glitch 3s infinite linear;
+        }
+      }
+    }
+  }
 }
 
-// @keyframes glitch-animation-1 {
-//   0% {clip: rect(113px, 9999px, 45px, 0px);}
-//   5% {clip: rect(143px, 9999px, 57px, 0px);}
-//   10% {clip: rect(120px, 9999px, 144px, 0px);}
-//   15% {clip: rect(70px, 9999px, 123px, 0px);}
-//   20% {clip: rect(118px, 9999px, 97px, 0px);}
-//   25% {clip: rect(124px, 9999px, 94px, 0px);}
-//   30% {clip: rect(104px, 9999px, 91px, 0px);}
-//   35% {clip: rect(64px, 9999px, 92px, 0px);}
-//   40% {clip: rect(108px, 9999px, 146px, 0px);}
-//   45% {clip: rect(10px, 9999px, 145px, 0px);}
-//   50% {clip: rect(19px, 9999px, 116px, 0px);}
-//   55% {clip: rect(20px, 9999px, 80px, 0px);}
-//   60% {clip: rect(53px, 9999px, 79px, 0px);}
-//   65% {clip: rect(79px, 9999px, 11px, 0px);}
-//   70% {clip: rect(52px, 9999px, 36px, 0px);}
-//   75% {clip: rect(82px, 9999px, 47px, 0px);}
-//   80% {clip: rect(20px, 9999px, 97px, 0px);}
-//   85% {clip: rect(81px, 9999px, 82px, 0px);}
-//   90% {clip: rect(31px, 9999px, 120px, 0px);}
-//   95% {clip: rect(97px, 9999px, 80px, 0px);}
-//   100% {clip: rect(72px, 9999px, 53px, 0px);}
-// }
-@keyframes glitch-animation-2 {
+@keyframes glitch{
   0% {clip: rect(34px, 9999px, 56px, 0px);}
   5% {clip: rect(114px, 9999px, 64px, 0px);}
   10% {clip: rect(150px, 9999px, 5px, 0px);}
@@ -83,4 +123,187 @@
   90% {clip: rect(140px, 9999px, 45px, 0px);}
   95% {clip: rect(9px, 9999px, 8px, 0px);}
   100% {clip: rect(47px, 9999px, 56px, 0px);}
+}
+
+
+
+
+.product-list-wrap{
+  transform: translateY(-40px);
+
+  .product-list-category-wrap{
+    .product-list-category{
+      width: 100%;
+      border-radius: 40px 40px 0 0;
+      background-color: #fff;
+      @include flex(flex-start,center,nowrap,row);
+      padding: 15px 25px 10px 25px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+
+      li{
+        padding: 3px 7px;
+        color: #ddd; font-size: 13px; font-weight: 900;
+      }
+      li.active{
+        color: $blue;
+      }
+    }
+
+    .product-list-top-wrap{
+      width: 100%;
+      background-color: #fff;
+      padding: 20px 15px 10px 15px;
+      @include flex(space-between,center,nowrap,row);
+
+      .product-list-total-wrap{
+        width: 30%;
+
+        .product-list-total{
+          font-family: 'Coda', cursive; font-size: 15px;
+
+          em{
+            margin: 0 5px;
+            font-style: normal; font-size: 1.1em; color: $blue; font-weight: 600;
+          }
+        }
+      }
+
+      .product-list-sort-wrap{
+        width: 60%;
+        @include flex(flex-end,center,nowrap,row);
+
+        .product-list-view-type{
+          @include flex(center,center,nowrap,row);
+          font-size: 30px;
+
+          li{margin: 0 3px; color: #ddd;}
+          li.active{color: $blue;}
+        }
+
+        select{
+          width: 115px; height: 40px;
+          margin: 0 0 0 5px;
+          padding: 5px;
+          border: none;
+          background-color: #ddd;
+          border-radius: 40px;
+        }
+      }
+    }
+  }
+
+  .product-list-box-wrap{
+    .product-list-box{
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      background-color: #fff;
+
+      .product-empty{
+        width: 100%;
+        text-align: center;
+        font-size: 13px;
+      }
+  
+      li{
+        width: 50%;
+  
+        .product-img-box{
+          img{width: 100%;}
+        }
+        .product-info{
+          text-align: center;
+          padding: 5px 0 25px 0;
+          
+          h4{
+            color: #444; font-size: 10px;
+          }
+  
+          span{
+            display: inline-block;
+            margin-top: 5px;
+            color: #333;
+            font-size: 18px; font-weight: 300;
+          }
+        }
+      }
+    }
+    .product-list-box.list{
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      background-color: #fff;
+      border-top: 1px solid rgba(0,0,0,0.1);
+  
+      .product-empty{
+        width: 100%;
+        text-align: center;
+        font-size: 13px;
+      }
+
+      li{
+        width: 100%;
+        @include flex(space-between,center,nowrap,row);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding: 5px 2px;
+  
+        .product-img-box{
+          width: 30%;
+          margin: 10px;
+          border: 1px solid rgba(0,0,0,0.1);
+  
+          img{
+            width: 100%;
+          }
+        }
+        .product-info{
+          width: 65%;
+          text-align: left;
+          align-self: flex-start;
+          
+          h4{
+            color: #444; font-size: 10px;
+          }
+  
+          span{
+            display: inline-block;
+            margin-top: 5px;
+            color: #333;
+            font-size: 18px; font-weight: 300;
+          }
+        }
+      }
+    }
+    .product-list-box.active{display: flex;}
+  }
+
+  .display-more-wrap{
+    margin: 50px 0;
+    @include flex(center,center,nowrap,column);
+
+    .display-more-text{
+      span{
+        font-weight: 600;
+      }
+    }
+    .display-more-pic{
+      width: 50px; height: 50px;
+      position: relative;
+      margin-top: 50px;
+
+      span{
+        display: block;
+        position: absolute;
+        left: 0; top: 0;
+        width: 50px; height: 2px;
+        background-color: #000;
+      }
+
+      span:nth-of-type(2){transform: rotate(90deg);}
+    }
+  }
 }

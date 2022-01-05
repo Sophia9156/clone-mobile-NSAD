@@ -25,10 +25,10 @@ let barMove = function(){
   interval = setInterval(function(){
     num < 3 ? num++ : num = 1;
     $('.slide-nav').html(`0${num}`);
-    $('.slide-status-bar span').css('width',`${33*num}%`);
+    $('.slide-status-bar span').css('width',`${33.3*num}%`);
   },4000)
 }
-$('.slide-status-bar span').css('width',`${33}%`)
+$('.slide-status-bar span').css('width',`${33.3}%`)
 $('.slide-nav').html(`01`);
 barMove();
 
@@ -41,7 +41,7 @@ $('.event-slide-bg').draggable({
   axis:'x',
   revert: function(){
     dPos.dir = (dPos.x > dPos.dx) ? 'left' : 'right';
-    dPos.state = itemW * 0.5 > Math.abs(dPos.x - dPos.dx);
+    dPos.state = itemW * 0.3 > Math.abs(dPos.x - dPos.dx);
     return dPos.state;
   },
   start: function(e){
