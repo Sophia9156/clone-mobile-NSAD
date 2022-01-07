@@ -3,55 +3,7 @@
 
 
 .title{
-  width: 100%; max-width: 760px; height: 200px;
-  padding: 100px 15px 20px;
-
-  h2{
-    font-size: 55px;
-    text-align: center;
-
-    .glitch{
-      position: relative;
-
-      &::before,&::after{
-        content: attr(data-text);
-        position: absolute;
-        left: -2px; top: 0;
-        overflow: hidden;
-        color: transparent;
-      }
-      &::before{
-        animation: glitch 2s infinite linear;
-      }
-      &::after{
-        animation: glitch 6s infinite linear;
-      }
-    }
-  }
-
-  @keyframes glitch{
-    0% {clip: rect(14px, 9999px, 56px, 0px); text-shadow: -2px 0#ff00d4ef;}
-    5% {clip: rect(114px, 9999px, 64px, 0px); text-shadow: 2px 0#3afe3ac2;}
-    10% {clip: rect(60px, 9999px, 5px, 0px); text-shadow: -2px 0#001affc5;}
-    15% {clip: rect(66px, 9999px, 55px, 0px); text-shadow: 2px 0#ff00d4ef;}
-    20% {clip: rect(35px, 9999px, 121px, 0px); text-shadow: -2px 0#3afe3ac2;}
-    25% {clip: rect(88px, 9999px, 100px, 0px); text-shadow: 2px 0#001affc5;}
-    30% {clip: rect(78px, 9999px, 111px, 0px); text-shadow: -2px 0#ff00d4ef;}
-    35% {clip: rect(54px, 9999px, 84px, 0px); text-shadow: 2px 0 #3afe3ac2;}
-    40% {clip: rect(86px, 9999px, 64px, 0px); text-shadow: -2px 0 #001affc5;}
-    45% {clip: rect(82px, 9999px, 126px, 0px); text-shadow: 2px 0 #ff00d4ef;}
-    50% {clip: rect(111px, 9999px, 86px, 0px); text-shadow: -2px 0 #3afe3ac2;}
-    55% {clip: rect(107px, 9999px, 50px, 0px); text-shadow: 2px 0 #001affc5;}
-    60% {clip: rect(101px, 9999px, 95px, 0px); text-shadow: -2px 0 #ff00d4ef;}
-    65% {clip: rect(137px, 9999px, 121px, 0px); text-shadow: 2px 0 #3afe3ac2;}
-    70% {clip: rect(22px, 9999px, 86px, 0px); text-shadow: -2px 0 #001affc5;}
-    75% {clip: rect(40px, 9999px, 66px, 0px); text-shadow: 2px 0 #ff00d4ef;}
-    80% {clip: rect(59px, 9999px, 78px, 0px); text-shadow: -2px 0 #3afe3ac2;}
-    85% {clip: rect(6px, 9999px, 62px, 0px); text-shadow: 2px 0 #001affc5;}
-    90% {clip: rect(140px, 9999px, 85px, 0px); text-shadow: -2px 0 #ff00d4ef;}
-    95% {clip: rect(39px, 9999px, 8px, 0px); text-shadow: 2px 0 #3afe3ac2;}
-    100% {clip: rect(47px, 9999px, 76px, 0px); text-shadow: -2px 0 #001affc5;}
-  }
+  @include glitch;
 }
 
 .tab-wrap{

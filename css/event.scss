@@ -1,0 +1,8 @@
+@import '_common.scss';
+@import '_mixin.scss';
+
+
+
+.title{
+  @include glitch;
+}
