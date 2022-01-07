@@ -1,17 +1,4 @@
-let liNum = 0;
 
-$('.tab-wrap > li').eq(liNum).addClass('active');
-$('.event-content > li').eq(liNum).addClass('active');
-
-$('.tab-wrap > li').on('click',function(){
-  liNum = $(this).index();
-
-  $('.tab-wrap > li').removeClass('active');
-  $('.event-content > li').removeClass('active');
-
-  $('.tab-wrap > li').eq(liNum).addClass('active');
-  $('.event-content > li').eq(liNum).addClass('active');
-});
 
 let dataChange = function(){
   $.ajax({
@@ -36,7 +23,7 @@ let dataChange = function(){
 
       //종료된 이벤트 삽입
       let expiredEvent = '';
-      for(let i = 0; i < 11; i++){
+      for(let i = 11; i < 22; i++){
         expiredEvent +=`
         <li class="event-unit expired-unit">
           <figure class="event-img">

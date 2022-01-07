@@ -369,5 +369,124 @@
       "detail1":"img/new-collection/detail41.jpg",
       "detail2":"img/new-collection/detail41-1.jpg"
     }
+  ],
+  "ongoingEvent":[
+    {
+      "title":"SPECIAL GIFT",
+      "date":"2021.10.25 ~ 2022.03.31",
+      "thumb":"img/event/thumb01.jpg"
+    }
+  ],
+  "expiredEvent":[
+    {
+      "title":"GOOD BUY 2021",
+      "date":"2021.11.29 ~ 2021.12.27",
+      "thumb":"img/event/thumb02.jpg"
+    },
+    {
+      "title":"GOOD BUY 2021",
+      "date":"2021.11.12 ~ 2021.11.18",
+      "thumb":"img/event/thumb03.jpg"
+    },
+    {
+      "title":"NSAD SUPER FLEX WEEK",
+      "date":"2021.11.12 ~ 2021.11.25",
+      "thumb":"img/event/thumb04.jpg"
+    },
+    {
+      "title":"THIN DOWN EARLY BIRD 30%",
+      "date":"2021.08.23 ~ 2021.09.06",
+      "thumb":"img/event/thumb05.jpg"
+    },
+    {
+      "title":"Enjoy NSAD* First Anniversary",
+      "date":"2021.08.16 ~ 2021.08.20",
+      "thumb":"img/event/thumb06.jpg"
+    },
+    {
+      "title":"HAPPY NSAD DAY",
+      "date":"2021.08.09 ~ 2021.08.18",
+      "thumb":"img/event/thumb07.jpg"
+    },
+    {
+      "title":"WELCOME GIFT",
+      "date":"2021.06.11 ~ 2021.06.27",
+      "thumb":"img/event/thumb08.jpg"
+    },
+    {
+      "title":"SUMMER WITH NSAD*",
+      "date":"2021.04.28 ~ 2021.05.12",
+      "thumb":"img/event/thumb09.jpg"
+    },
+    {
+      "title":"SHOPPING CHANCE UP TO 20% BENEFIT",
+      "date":"2021.04.28 ~ 2021.05.12",
+      "thumb":"img/event/thumb10.jpg"
+    },
+    {
+      "title":"WANT IT? OWN IT!",
+      "date":"2021.01.18 ~ 2021.02.14",
+      "thumb":"img/event/thumb11.jpg"
+    },
+    {
+      "title":"COME OOONNN ~!",
+      "date":"2021.01.18 ~ 2021.01.24",
+      "thumb":"img/event/thumb12.jpg"
+    },
+    {
+      "title":"INSTAGRAM #REVIEW",
+      "date":"2021.11.20 ~ 2021.11.29",
+      "thumb":"img/event/thumb13.jpg"
+    },
+    {
+      "title":"OUTER FESTIVAL",
+      "date":"2021.11.20 ~ 2021.12.07",
+      "thumb":"img/event/thumb14.jpg"
+    },
+    {
+      "title":"ENTER 30% COUPON NUMBER",
+      "date":"2021.10.29 ~ 2021.11.04",
+      "thumb":"img/event/thumb15.jpg"
+    },
+    {
+      "title":"1MORE CHANCE",
+      "date":"2021.10.19 ~ 2021.11.01",
+      "thumb":"img/event/thumb16.jpg"
+    },
+    {
+      "title":"TIME DEAL",
+      "date":"2021.10.08 ~ 2021.10.16",
+      "thumb":"img/event/thumb17.jpg"
+    },
+    {
+      "title":"FIRST PURCHASE BENEFIT",
+      "date":"2021.09.18 ~ 2021.10.12",
+      "thumb":"img/event/thumb18.jpg"
+    },
+    {
+      "title":"ALL MY SUIT",
+      "date":"2021.09.16 ~ 2021.10.05",
+      "thumb":"img/event/thumb19.jpg"
+    },
+    {
+      "title":"SPECIAL GIFT",
+      "date":"2021.09.18 ~ 2021.10.26",
+      "thumb":"img/event/thumb20.jpg"
+    },
+    {
+      "title":"NSAD* 런칭 기념 이벤트",
+      "date":"2021.08.06 ~ 2021.08.19",
+      "thumb":"img/event/thumb21.jpg"
+    },
+    {
+      "title":"SIGN UP FOR 10% COUPON",
+      "date":"2021.07.30 ~ 2021.08.31",
+      "thumb":"img/event/thumb22.png"
+    },
+    {
+      "title":"FREE GIFT",
+      "date":"2021.07.30 ~ 2021.08.31",
+      "thumb":"img/event/thumb23.jpg"
+    }
   ]
 }

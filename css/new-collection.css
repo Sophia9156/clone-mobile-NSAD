@@ -123,7 +123,7 @@ table {
 }
 
 .title-wrap.active .title-bg img {
-  width: 100%;
+  min-width: 400px;
   z-index: -1;
 }
 
@@ -321,8 +321,8 @@ table {
 }
 
 .product-list-wrap {
-  -webkit-transform: translateY(-40px);
-          transform: translateY(-40px);
+  -webkit-transform: translateY(-80px);
+          transform: translateY(-80px);
 }
 
 .product-list-wrap .product-list-category-wrap .product-list-category {

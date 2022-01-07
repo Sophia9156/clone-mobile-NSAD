@@ -2,9 +2,7 @@
 @import '_mixin.scss';
 
 
-.title{
-  @include glitch;
-}
+@include glitch;
 
 .tab-wrap{
   width: 100%; max-width: 760px;

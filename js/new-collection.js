@@ -24,21 +24,39 @@ let dataChange = function(){
       let clickNum = 0;
       $('.display-more-wrap').on('click',function(){
         clickNum++;
-        for(i=20*clickNum; i<20*(clickNum+1); i++){
+        if(clickNum == 1){
+          for(i=20*clickNum; i<20*(clickNum+1); i++){
+            productList += `<li>
+                              <div class="product-img-box">
+                                <a href="product-detail.html">
+                                  <img src="${data.newCollection[i].thumb}" alt="">
+                                </a>
+                              </div>
+                              <div class="product-info">
+                                <a href="product-detail.html">
+                                  <h4>${data.newCollection[i].name}</h4>
+                                  <span>￦${data.newCollection[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
+                                </a>
+                              </div>
+                            </li>`;
+          }
+        }else{
           productList += `<li>
-                            <div class="product-img-box">
-                              <a href="product-detail.html">
-                                <img src="${data.newCollection[i].thumb}" alt="">
-                              </a>
-                            </div>
-                            <div class="product-info">
-                              <a href="product-detail.html">
-                                <h4>${data.newCollection[i].name}</h4>
-                                <span>￦${data.newCollection[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
-                              </a>
-                            </div>
-                          </li>`;
+                              <div class="product-img-box">
+                                <a href="product-detail.html">
+                                  <img src="${data.newCollection[40].thumb}" alt="">
+                                </a>
+                              </div>
+                              <div class="product-info">
+                                <a href="product-detail.html">
+                                  <h4>${data.newCollection[40].name}</h4>
+                                  <span>￦${data.newCollection[40].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
+                                </a>
+                              </div>
+                            </li>`;
+          $('.display-more-wrap').hide();
         }
+        
         $('.product-list-box-all').html(productList);
       });
       

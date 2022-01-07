@@ -1,17 +1,3 @@
-let liNum = 0;
-
-$('.tab-wrap > li').eq(liNum).addClass('active');
-$('.event-content > li').eq(liNum).addClass('active');
-
-$('.tab-wrap > li').on('click',function(){
-  liNum = $(this).index();
-
-  $('.tab-wrap > li').removeClass('active');
-  $('.event-content > li').removeClass('active');
-
-  $('.tab-wrap > li').eq(liNum).addClass('active');
-  $('.event-content > li').eq(liNum).addClass('active');
-});
 
 let dataChange = function(){
   $.ajax({
