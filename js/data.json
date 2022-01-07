@@ -3,207 +3,371 @@
     {
       "thumb":"img/new-collection/thumb01.jpg",
       "name":"PRODUCT01",
-      "price":"￦329,000"
+      "price":"329000",
+      "full1":"img/new-collection/full01.jpg",
+      "full2":"img/new-collection/full01-1.jpg",
+      "detail1":"img/new-collection/detail01.jpg",
+      "detail2":"img/new-collection/detail01-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb02.jpg",
       "name":"PRODUCT02",
-      "price":"￦329,000"
+      "price":"329000",
+      "full1":"img/new-collection/full02.jpg",
+      "full2":"img/new-collection/full02-1.jpg",
+      "detail1":"img/new-collection/detail02.jpg",
+      "detail2":"img/new-collection/detail02-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb03.jpg",
       "name":"PRODUCT03",
-      "price":"￦329,000"
+      "price":"329000",
+      "full1":"img/new-collection/full03.jpg",
+      "full2":"img/new-collection/full03-1.jpg",
+      "detail1":"img/new-collection/detail03.jpg",
+      "detail2":"img/new-collection/detail03-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb04.jpg",
       "name":"PRODUCT04",
-      "price":"￦279,000"
+      "price":"279000",
+      "full1":"img/new-collection/full04.jpg",
+      "full2":"img/new-collection/full04-1.jpg",
+      "detail1":"img/new-collection/detail04.jpg",
+      "detail2":"img/new-collection/detail04-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb05.jpg",
       "name":"PRODUCT05",
-      "price":"￦279,000"
+      "price":"279000",
+      "full1":"img/new-collection/full05.jpg",
+      "full2":"img/new-collection/full05-1.jpg",
+      "detail1":"img/new-collection/detail05.jpg",
+      "detail2":"img/new-collection/detail05-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb06.jpg",
       "name":"PRODUCT06",
-      "price":"￦299,000"
+      "price":"299000",
+      "full1":"img/new-collection/full06.jpg",
+      "full2":"img/new-collection/full06-1.jpg",
+      "detail1":"img/new-collection/detail06.jpg",
+      "detail2":"img/new-collection/detail06-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb07.jpg",
       "name":"PRODUCT07",
-      "price":"￦299,000"
+      "price":"299000",
+      "full1":"img/new-collection/full07.jpg",
+      "full2":"img/new-collection/full07-1.jpg",
+      "detail1":"img/new-collection/detail07.jpg",
+      "detail2":"img/new-collection/detail07-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb08.jpg",
       "name":"PRODUCT08",
-      "price":"￦199,000"
+      "price":"199000",
+      "full1":"img/new-collection/full08.jpg",
+      "full2":"img/new-collection/full08-1.jpg",
+      "detail1":"img/new-collection/detail08.jpg",
+      "detail2":"img/new-collection/detail08-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb09.jpg",
       "name":"PRODUCT09",
-      "price":"￦199,000"
+      "price":"199000",
+      "full1":"img/new-collection/full09.jpg",
+      "full2":"img/new-collection/full09-1.jpg",
+      "detail1":"img/new-collection/detail09.jpg",
+      "detail2":"img/new-collection/detail09-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb10.jpg",
       "name":"PRODUCT10",
-      "price":"￦179,000"
+      "price":"179000",
+      "full1":"img/new-collection/full10.jpg",
+      "full2":"img/new-collection/full10-1.jpg",
+      "detail1":"img/new-collection/detail10.jpg",
+      "detail2":"img/new-collection/detail10-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb11.jpg",
       "name":"PRODUCT11",
-      "price":"￦179,000"
+      "price":"179000",
+      "full1":"img/new-collection/full11.jpg",
+      "full2":"img/new-collection/full11-1.jpg",
+      "detail1":"img/new-collection/detail11.jpg",
+      "detail2":"img/new-collection/detail11-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb12.jpg",
       "name":"PRODUCT12",
-      "price":"￦179,000"
+      "price":"179000",
+      "full1":"img/new-collection/full12.jpg",
+      "full2":"img/new-collection/full12-1.jpg",
+      "detail1":"img/new-collection/detail12.jpg",
+      "detail2":"img/new-collection/detail12-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb13.jpg",
       "name":"PRODUCT13",
-      "price":"￦159,000"
+      "price":"159000",
+      "full1":"img/new-collection/full13.jpg",
+      "full2":"img/new-collection/full13-1.jpg",
+      "detail1":"img/new-collection/detail13.jpg",
+      "detail2":"img/new-collection/detail13-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb14.jpg",
       "name":"PRODUCT14",
-      "price":"￦159,000"
+      "price":"159000",
+      "full1":"img/new-collection/full14.jpg",
+      "full2":"img/new-collection/full14-1.jpg",
+      "detail1":"img/new-collection/detail14.jpg",
+      "detail2":"img/new-collection/detail14-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb15.jpg",
       "name":"PRODUCT15",
-      "price":"￦199,000"
+      "price":"199000",
+      "full1":"img/new-collection/full15.jpg",
+      "full2":"img/new-collection/full15-1.jpg",
+      "detail1":"img/new-collection/detail15.jpg",
+      "detail2":"img/new-collection/detail15-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb16.jpg",
       "name":"PRODUCT16",
-      "price":"￦199,000"
+      "price":"199000",
+      "full1":"img/new-collection/full16.jpg",
+      "full2":"img/new-collection/full16-1.jpg",
+      "detail1":"img/new-collection/detail16.jpg",
+      "detail2":"img/new-collection/detail16-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb17.jpg",
       "name":"PRODUCT17",
-      "price":"￦199,000"
+      "price":"199000",
+      "full1":"img/new-collection/full17.jpg",
+      "full2":"img/new-collection/full17-1.jpg",
+      "detail1":"img/new-collection/detail17.jpg",
+      "detail2":"img/new-collection/detail17-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb18.jpg",
       "name":"PRODUCT18",
-      "price":"￦149,000"
+      "price":"149000",
+      "full1":"img/new-collection/full18.jpg",
+      "full2":"img/new-collection/full18-1.jpg",
+      "detail1":"img/new-collection/detail18.jpg",
+      "detail2":"img/new-collection/detail18-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb19.jpg",
       "name":"PRODUCT19",
-      "price":"￦149,000"
+      "price":"149000",
+      "full1":"img/new-collection/full19.jpg",
+      "full2":"img/new-collection/full19-1.jpg",
+      "detail1":"img/new-collection/detail19.jpg",
+      "detail2":"img/new-collection/detail19-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb20.jpg",
       "name":"PRODUCT20",
-      "price":"￦149,000"
+      "price":"149000",
+      "full1":"img/new-collection/full20.jpg",
+      "full2":"img/new-collection/full20-1.jpg",
+      "detail1":"img/new-collection/detail20.jpg",
+      "detail2":"img/new-collection/detail20-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb21.jpg",
       "name":"PRODUCT21",
-      "price":"￦149,000"
+      "price":"149000",
+      "full1":"img/new-collection/full21.jpg",
+      "full2":"img/new-collection/full21-1.jpg",
+      "detail1":"img/new-collection/detail21.jpg",
+      "detail2":"img/new-collection/detail21-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb22.jpg",
       "name":"PRODUCT22",
-      "price":"￦199,000"
+      "price":"199000",
+      "full1":"img/new-collection/full22.jpg",
+      "full2":"img/new-collection/full22-1.jpg",
+      "detail1":"img/new-collection/detail22.jpg",
+      "detail2":"img/new-collection/detail22-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb23.jpg",
       "name":"PRODUCT23",
-      "price":"￦199,000"
+      "price":"199000",
+      "full1":"img/new-collection/full23.jpg",
+      "full2":"img/new-collection/full23-1.jpg",
+      "detail1":"img/new-collection/detail23.jpg",
+      "detail2":"img/new-collection/detail23-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb24.jpg",
       "name":"PRODUCT24",
-      "price":"￦239,000"
+      "price":"239000",
+      "full1":"img/new-collection/full24.jpg",
+      "full2":"img/new-collection/full24-1.jpg",
+      "detail1":"img/new-collection/detail24.jpg",
+      "detail2":"img/new-collection/detail24-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb25.jpg",
       "name":"PRODUCT25",
-      "price":"￦109,000"
+      "price":"109000",
+      "full1":"img/new-collection/full25.jpg",
+      "full2":"img/new-collection/full25-1.jpg",
+      "detail1":"img/new-collection/detail25.jpg",
+      "detail2":"img/new-collection/detail25-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb26.jpg",
       "name":"PRODUCT26",
-      "price":"￦109,000"
+      "price":"109000",
+      "full1":"img/new-collection/full26.jpg",
+      "full2":"img/new-collection/full26-1.jpg",
+      "detail1":"img/new-collection/detail26.jpg",
+      "detail2":"img/new-collection/detail26-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb27.jpg",
       "name":"PRODUCT27",
-      "price":"￦109,000"
+      "price":"109000",
+      "full1":"img/new-collection/full27.jpg",
+      "full2":"img/new-collection/full27-1.jpg",
+      "detail1":"img/new-collection/detail27.jpg",
+      "detail2":"img/new-collection/detail27-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb28.jpg",
       "name":"PRODUCT28",
-      "price":"￦329,000"
+      "price":"329000",
+      "full1":"img/new-collection/full28.jpg",
+      "full2":"img/new-collection/full28-1.jpg",
+      "detail1":"img/new-collection/detail28.jpg",
+      "detail2":"img/new-collection/detail28-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb29.jpg",
       "name":"PRODUCT29",
-      "price":"￦329,000"
+      "price":"329000",
+      "full1":"img/new-collection/full29.jpg",
+      "full2":"img/new-collection/full29-1.jpg",
+      "detail1":"img/new-collection/detail29.jpg",
+      "detail2":"img/new-collection/detail29-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb30.jpg",
       "name":"PRODUCT30",
-      "price":"￦329,000"
+      "price":"329000",
+      "full1":"img/new-collection/full30.jpg",
+      "full2":"img/new-collection/full30-1.jpg",
+      "detail1":"img/new-collection/detail30.jpg",
+      "detail2":"img/new-collection/detail30-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb31.jpg",
       "name":"PRODUCT31",
-      "price":"￦159,000"
+      "price":"159000",
+      "full1":"img/new-collection/full31.jpg",
+      "full2":"img/new-collection/full31-1.jpg",
+      "detail1":"img/new-collection/detail31.jpg",
+      "detail2":"img/new-collection/detail31-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb32.jpg",
       "name":"PRODUCT32",
-      "price":"￦159,000"
+      "price":"159000",
+      "full1":"img/new-collection/full32.jpg",
+      "full2":"img/new-collection/full32-1.jpg",
+      "detail1":"img/new-collection/detail32.jpg",
+      "detail2":"img/new-collection/detail32-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb33.jpg",
       "name":"PRODUCT33",
-      "price":"￦159,000"
+      "price":"159000",
+      "full1":"img/new-collection/full33.jpg",
+      "full2":"img/new-collection/full33-1.jpg",
+      "detail1":"img/new-collection/detail33.jpg",
+      "detail2":"img/new-collection/detail33-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb34.jpg",
       "name":"PRODUCT34",
-      "price":"￦159,000"
+      "price":"159000",
+      "full1":"img/new-collection/full34.jpg",
+      "full2":"img/new-collection/full34-1.jpg",
+      "detail1":"img/new-collection/detail34.jpg",
+      "detail2":"img/new-collection/detail34-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb35.jpg",
       "name":"PRODUCT35",
-      "price":"￦159,000"
+      "price":"159000",
+      "full1":"img/new-collection/full35.jpg",
+      "full2":"img/new-collection/full35-1.jpg",
+      "detail1":"img/new-collection/detail35.jpg",
+      "detail2":"img/new-collection/detail35-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb36.jpg",
       "name":"PRODUCT36",
-      "price":"￦379,000"
+      "price":"379000",
+      "full1":"img/new-collection/full36.jpg",
+      "full2":"img/new-collection/full36-1.jpg",
+      "detail1":"img/new-collection/detail36.jpg",
+      "detail2":"img/new-collection/detail36-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb37.jpg",
       "name":"PRODUCT37",
-      "price":"￦379,000"
+      "price":"379000",
+      "full1":"img/new-collection/full37.jpg",
+      "full2":"img/new-collection/full37-1.jpg",
+      "detail1":"img/new-collection/detail37.jpg",
+      "detail2":"img/new-collection/detail37-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb38.jpg",
       "name":"PRODUCT38",
-      "price":"￦379,000"
+      "price":"379000",
+      "full1":"img/new-collection/full38.jpg",
+      "full2":"img/new-collection/full38-1.jpg",
+      "detail1":"img/new-collection/detail38.jpg",
+      "detail2":"img/new-collection/detail38-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb39.jpg",
       "name":"PRODUCT39",
-      "price":"￦329,000"
+      "price":"329000",
+      "full1":"img/new-collection/full39.jpg",
+      "full2":"img/new-collection/full39-1.jpg",
+      "detail1":"img/new-collection/detail39.jpg",
+      "detail2":"img/new-collection/detail39-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb40.jpg",
       "name":"PRODUCT40",
-      "price":"￦199,000"
+      "price":"199000",
+      "full1":"img/new-collection/full40.jpg",
+      "full2":"img/new-collection/full40-1.jpg",
+      "detail1":"img/new-collection/detail40.jpg",
+      "detail2":"img/new-collection/detail40-1.jpg"
     },
     {
       "thumb":"img/new-collection/thumb41.jpg",
       "name":"PRODUCT41",
-      "price":"￦199,000"
+      "price":"199000",
+      "full1":"img/new-collection/full41.jpg",
+      "full2":"img/new-collection/full41-1.jpg",
+      "detail1":"img/new-collection/detail41.jpg",
+      "detail2":"img/new-collection/detail41-1.jpg"
     }
   ]
 }

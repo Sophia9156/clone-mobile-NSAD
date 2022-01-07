@@ -6,14 +6,14 @@ let dataChange = function(){
       for(let i=0; i<20; i++){
         productList += `<li>
                           <div class="product-img-box">
-                            <a href="#">
+                            <a href="product-detail.html">
                               <img src="${data.newCollection[i].thumb}" alt="">
                             </a>
                           </div>
                           <div class="product-info">
-                            <a href="#">
+                            <a href="product-detail.html">
                               <h4>${data.newCollection[i].name}</h4>
-                              <span>${data.newCollection[i].price}</span>
+                              <span>￦${data.newCollection[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
                             </a>
                           </div>
                         </li>`;
@@ -27,14 +27,14 @@ let dataChange = function(){
         for(i=20*clickNum; i<20*(clickNum+1); i++){
           productList += `<li>
                             <div class="product-img-box">
-                              <a href="#">
+                              <a href="product-detail.html">
                                 <img src="${data.newCollection[i].thumb}" alt="">
                               </a>
                             </div>
                             <div class="product-info">
-                              <a href="#">
+                              <a href="product-detail.html">
                                 <h4>${data.newCollection[i].name}</h4>
-                                <span>${data.newCollection[i].price}</span>
+                                <span>￦${data.newCollection[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
                               </a>
                             </div>
                           </li>`;
@@ -43,6 +43,10 @@ let dataChange = function(){
       });
       
       $('.product-list-total em').html(data.newCollection.length);
+
+      $('.product-list-box li').on('click',function(){
+        localStorage.idx = $(this).index();
+      });
     }
   });
   setTimeout(dataChange,600000);
