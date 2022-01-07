@@ -42,7 +42,7 @@ header {
   position: fixed;
   width: 100%;
   max-width: 760px;
-  z-index: 10;
+  z-index: 999;
 }
 
 header > div {
@@ -496,5 +496,6 @@ footer div .instagram {
 footer div p {
   font-size: 12px;
   color: #adadad;
+  margin-bottom: 50px;
 }
 /*# sourceMappingURL=header-footer.css.map */

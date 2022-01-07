@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Coda&display=swap");
+body {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6, p, figure {
+  margin: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+image {
+  vertical-align: middle;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.material-icons-outlined {
+  font-family: 'Material Icons';
+}
+
+.title {
+  width: 100%;
+  max-width: 760px;
+  height: 200px;
+  padding: 100px 15px 20px;
+}
+
+.title h2 {
+  font-size: 55px;
+  text-align: center;
+}
+
+.title h2 .glitch {
+  position: relative;
+}
+
+.title h2 .glitch::before, .title h2 .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  top: 0;
+  overflow: hidden;
+  color: transparent;
+}
+
+.title h2 .glitch::before {
+  -webkit-animation: glitch 2s infinite linear;
+          animation: glitch 2s infinite linear;
+}
+
+.title h2 .glitch::after {
+  -webkit-animation: glitch 6s infinite linear;
+          animation: glitch 6s infinite linear;
+}
+
+@-webkit-keyframes glitch {
+  0% {
+    clip: rect(14px, 9999px, 56px, 0px);
+    text-shadow: -2px 0 #ff00d4ef;
+  }
+  5% {
+    clip: rect(114px, 9999px, 64px, 0px);
+    text-shadow: 2px 0 #3afe3ac2;
+  }
+  10% {
+    clip: rect(60px, 9999px, 5px, 0px);
+    text-shadow: -2px 0 #001affc5;
+  }
+  15% {
+    clip: rect(66px, 9999px, 55px, 0px);
+    text-shadow: 2px 0 #ff00d4ef;
+  }
+  20% {
+    clip: rect(35px, 9999px, 121px, 0px);
+    text-shadow: -2px 0 #3afe3ac2;
+  }
+  25% {
+    clip: rect(88px, 9999px, 100px, 0px);
+    text-shadow: 2px 0 #001affc5;
+  }
+  30% {
+    clip: rect(78px, 9999px, 111px, 0px);
+    text-shadow: -2px 0 #ff00d4ef;
+  }
+  35% {
+    clip: rect(54px, 9999px, 84px, 0px);
+    text-shadow: 2px 0 #3afe3ac2;
+  }
+  40% {
+    clip: rect(86px, 9999px, 64px, 0px);
+    text-shadow: -2px 0 #001affc5;
+  }
+  45% {
+    clip: rect(82px, 9999px, 126px, 0px);
+    text-shadow: 2px 0 #ff00d4ef;
+  }
+  50% {
+    clip: rect(111px, 9999px, 86px, 0px);
+    text-shadow: -2px 0 #3afe3ac2;
+  }
+  55% {
+    clip: rect(107px, 9999px, 50px, 0px);
+    text-shadow: 2px 0 #001affc5;
+  }
+  60% {
+    clip: rect(101px, 9999px, 95px, 0px);
+    text-shadow: -2px 0 #ff00d4ef;
+  }
+  65% {
+    clip: rect(137px, 9999px, 121px, 0px);
+    text-shadow: 2px 0 #3afe3ac2;
+  }
+  70% {
+    clip: rect(22px, 9999px, 86px, 0px);
+    text-shadow: -2px 0 #001affc5;
+  }
+  75% {
+    clip: rect(40px, 9999px, 66px, 0px);
+    text-shadow: 2px 0 #ff00d4ef;
+  }
+  80% {
+    clip: rect(59px, 9999px, 78px, 0px);
+    text-shadow: -2px 0 #3afe3ac2;
+  }
+  85% {
+    clip: rect(6px, 9999px, 62px, 0px);
+    text-shadow: 2px 0 #001affc5;
+  }
+  90% {
+    clip: rect(140px, 9999px, 85px, 0px);
+    text-shadow: -2px 0 #ff00d4ef;
+  }
+  95% {
+    clip: rect(39px, 9999px, 8px, 0px);
+    text-shadow: 2px 0 #3afe3ac2;
+  }
+  100% {
+    clip: rect(47px, 9999px, 76px, 0px);
+    text-shadow: -2px 0 #001affc5;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    clip: rect(14px, 9999px, 56px, 0px);
+    text-shadow: -2px 0 #ff00d4ef;
+  }
+  5% {
+    clip: rect(114px, 9999px, 64px, 0px);
+    text-shadow: 2px 0 #3afe3ac2;
+  }
+  10% {
+    clip: rect(60px, 9999px, 5px, 0px);
+    text-shadow: -2px 0 #001affc5;
+  }
+  15% {
+    clip: rect(66px, 9999px, 55px, 0px);
+    text-shadow: 2px 0 #ff00d4ef;
+  }
+  20% {
+    clip: rect(35px, 9999px, 121px, 0px);
+    text-shadow: -2px 0 #3afe3ac2;
+  }
+  25% {
+    clip: rect(88px, 9999px, 100px, 0px);
+    text-shadow: 2px 0 #001affc5;
+  }
+  30% {
+    clip: rect(78px, 9999px, 111px, 0px);
+    text-shadow: -2px 0 #ff00d4ef;
+  }
+  35% {
+    clip: rect(54px, 9999px, 84px, 0px);
+    text-shadow: 2px 0 #3afe3ac2;
+  }
+  40% {
+    clip: rect(86px, 9999px, 64px, 0px);
+    text-shadow: -2px 0 #001affc5;
+  }
+  45% {
+    clip: rect(82px, 9999px, 126px, 0px);
+    text-shadow: 2px 0 #ff00d4ef;
+  }
+  50% {
+    clip: rect(111px, 9999px, 86px, 0px);
+    text-shadow: -2px 0 #3afe3ac2;
+  }
+  55% {
+    clip: rect(107px, 9999px, 50px, 0px);
+    text-shadow: 2px 0 #001affc5;
+  }
+  60% {
+    clip: rect(101px, 9999px, 95px, 0px);
+    text-shadow: -2px 0 #ff00d4ef;
+  }
+  65% {
+    clip: rect(137px, 9999px, 121px, 0px);
+    text-shadow: 2px 0 #3afe3ac2;
+  }
+  70% {
+    clip: rect(22px, 9999px, 86px, 0px);
+    text-shadow: -2px 0 #001affc5;
+  }
+  75% {
+    clip: rect(40px, 9999px, 66px, 0px);
+    text-shadow: 2px 0 #ff00d4ef;
+  }
+  80% {
+    clip: rect(59px, 9999px, 78px, 0px);
+    text-shadow: -2px 0 #3afe3ac2;
+  }
+  85% {
+    clip: rect(6px, 9999px, 62px, 0px);
+    text-shadow: 2px 0 #001affc5;
+  }
+  90% {
+    clip: rect(140px, 9999px, 85px, 0px);
+    text-shadow: -2px 0 #ff00d4ef;
+  }
+  95% {
+    clip: rect(39px, 9999px, 8px, 0px);
+    text-shadow: 2px 0 #3afe3ac2;
+  }
+  100% {
+    clip: rect(47px, 9999px, 76px, 0px);
+    text-shadow: -2px 0 #001affc5;
+  }
+}
+
+.tab-wrap {
+  width: 100%;
+  max-width: 760px;
+}
+
+.tab-wrap .tab-menu {
+  width: 92%;
+  height: 35px;
+  margin: 40px auto 0;
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.tab-wrap .tab-menu li {
+  width: 50%;
+  height: 100%;
+  font-size: 13px;
+  color: #444;
+}
+
+.tab-wrap .tab-menu li.active {
+  border-bottom: 2px solid #000;
+}
+
+.tab-wrap .tab-content {
+  width: 92%;
+  margin: 10px auto;
+}
+
+.tab-wrap .tab-content li.active {
+  display: block;
+}
+
+.tab-wrap .tab-content li {
+  display: none;
+}
+
+.tab-wrap .tab-content .for-user form .input-idpw input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+.tab-wrap .tab-content .for-user form .input-idpw input:focus {
+  outline: none;
+}
+
+.tab-wrap .tab-content .for-user form .save-id {
+  padding: 10px 0;
+  font-size: 13px;
+  color: #444;
+}
+
+.tab-wrap .tab-content .for-user form .save-id input {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+}
+
+.tab-wrap .tab-content .for-user form .login-btn {
+  width: 100%;
+  margin: 20px auto 10px;
+}
+
+.tab-wrap .tab-content .for-user form .login-btn input {
+  width: 100%;
+  height: 45px;
+  border-radius: 45px;
+  border: none;
+  background-color: #003594;
+  color: #fff;
+  font-weight: 600;
+}
+
+.tab-wrap .tab-content .for-user .btn {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+
+.tab-wrap .tab-content .for-user .btn a {
+  width: 25%;
+  font-size: 13px;
+  color: #bbb;
+}
+
+.tab-wrap .tab-content .for-user .btn span {
+  margin: 0 10px;
+  color: #ddd;
+}
+
+.tab-wrap .tab-content .for-user .sns-user {
+  width: 100%;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.tab-wrap .tab-content .for-user .sns-user h4 {
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tab-wrap .tab-content .for-user .sns-user .sns-btn button {
+  margin-top: 10px;
+  border: none;
+  background-color: transparent;
+}
+
+.tab-wrap .tab-content .for-user .sns-user .sns-btn button img {
+  width: 100%;
+}
+
+.tab-wrap .for-nonUser p {
+  margin: 30px 0 20px;
+  font-size: 14px;
+  color: #444;
+  font-weight: bold;
+}
+
+.tab-wrap .for-nonUser button {
+  display: block;
+  width: 100%;
+  height: 45px;
+  margin: 10px auto 30px;
+  border: none;
+  text-align: center;
+  border-radius: 45px;
+  background-color: #003594;
+}
+
+.tab-wrap .for-nonUser button a {
+  color: #fff;
+  font-weight: 600;
+}
+/*# sourceMappingURL=login.css.map */

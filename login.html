@@ -22,7 +22,60 @@
 </head>
 <body>
   <header></header>
-  <main></main>
+  <main>
+    
+    <div class="title">
+      <h2>
+        <span class="glitch" data-text="LOGIN*">LOGIN*</span>
+      </h2>
+    </div>
+
+    <div class="tab-wrap">
+      <ul class="tab-menu">
+        <li>로그인</li>
+        <li>비회원 주문조회</li>
+      </ul>
+      <ul class="tab-content">
+        <li class="for-user">
+          <form>
+            <div class="input-idpw">
+              <input type="text" name="id" placeholder="아이디">
+              <input type="text" name="pw" placeholder="비밀번호">
+            </div>
+            <div class="save-id">
+              <input type="checkbox" name="check"> 아이디저장
+            </div>
+            <div class="login-btn"> <input type="submit" value="로그인"> </div>
+          </form>
+          <div class="btn">
+            <a href="#">회원가입</a><span>I</span>
+            <a href="#">아이디찾기</a><span>I</span>
+            <a href="#">패스워드찾기</a>
+          </div>
+          <div class="sns-user">
+            <h4>SNS계정으로 간편가입</h4>
+            <div class="sns-btn">
+              <button>
+                <a href="#">
+                  <img src="img/login/naver.png" alt="NAVER">
+                </a>
+              </button>
+              <button>
+                <a href="#">
+                  <img src="img/login/kakao.png" alt="KAKAO">
+                </a>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li class="for-nonUser">
+          <p>비회원 주문</p>
+          <button><a href="#">비회원 주문하기</a></button>
+        </li>
+      </ul>
+    </div>
+
+  </main>
   <footer></footer>
 </body>
 </html>

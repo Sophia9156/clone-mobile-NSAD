@@ -1,4 +1,4 @@
-let quantity = 1;
+let quantity = 0;
 
 let dataChange = function(){
   $.ajax({
@@ -101,6 +101,8 @@ let dataChange = function(){
 
 
       $('.buy-cart-size-btn button').on('click',function(){
+        quantity++;
+        $('.buy-cart-total span').html((data.newCollection[localStorage.idx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
         $(this).addClass('active');
         $('.buy-cart-size-add').addClass('active');
         $('.buy-cart-size-add').append(`
@@ -138,14 +140,38 @@ let dataChange = function(){
           $('.buy-cart-size-btn button').removeClass('active');
           $('.buy-cart-size-add').removeClass('active');
           $('.buy-cart-size-add').html('');
-          quantity = 1;
+          quantity = 0;
           $('.buy-cart-total span').html((data.newCollection[localStorage.idx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
         });
 
       });
 
-      
-      
+      $('.buy-cart-btn').on('click',function(){
+        $('.buy-cart-box-wrap').addClass('active');
+        $('.buy-cart-total span').html(data.newCollection[localStorage.idx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+      });
+
+      $('.buy-cart-box-close').on('click',function(){
+        $('.buy-cart-box-wrap').removeClass('active');
+        $('.buy-cart-size-btn button').removeClass('active');
+        $('.buy-cart-size-add').removeClass('active');
+        $('.buy-cart-size-add').html('');
+        quantity = 0;
+        $('.buy-cart-total span').html((data.newCollection[localStorage.idx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+      });
+
+      $('.buy-btn').on('click',function(){
+        if(quantity>=1){
+          window.location.href = "login.html";
+          localStorage.buyquantity = quantity;
+        }
+      });
+      $('.cart-btn').on('click',function(){
+        if(quantity>=1){
+          window.location.href = "cart.html";
+          localStorage.buyquantity = quantity;
+        }
+      });
 
     }
   })
@@ -179,12 +205,8 @@ $('.product-detailImg-info-title').on('click',function(){
 });
 
 
-$('.buy-cart-btn').on('click',function(){
-  $('.buy-cart-box-wrap').addClass('active');
-});
-$('.buy-cart-box-close').on('click',function(){
-  $('.buy-cart-box-wrap').removeClass('active');
-});
+
+
 
 
 
