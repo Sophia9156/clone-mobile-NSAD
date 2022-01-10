@@ -5,22 +5,6 @@ let dataChange = function(){
     url: 'js/data.json',
     success: function(data){
 
-      // 진행중 이벤트 삽입
-      let ongoingEvent = '';
-      $.each(data.ongoingEvent,function(k,v){
-        ongoingEvent +=`
-        <li class="event-unit">
-          <figure class="event-img">
-            <img src="${v.thumb}" alt="">
-          </figure>
-          <div class="event-title">
-            <h4>${v.title}</h4>
-            <p>${v.date}</p>
-          </div>
-        </li>`;
-      });
-      $('.ongoing-event-wrap').html(ongoingEvent);
-
       //종료된 이벤트 삽입
       let expiredEvent = '';
       for(let i = 11; i < 22; i++){
@@ -39,7 +23,19 @@ let dataChange = function(){
 
       $('.expired-unit').on('click',function(){
         alert('종료된 이벤트입니다!');
-      })
+      });
+
+      window.onload = function(){
+        $('.event-unit').eq(0).addClass('active');
+      };
+      
+      window.onscroll = function(){
+        $('.event-unit').each(function(k,v){
+          if(v.offsetTop - window.innerHeight*0.8 < window.scrollY){
+            v.classList.add('active');
+          }
+        });
+      }
     }
   })
 };

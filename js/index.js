@@ -41,7 +41,7 @@ $('.event-slide-bg').draggable({
   axis:'x',
   revert: function(){
     dPos.dir = (dPos.x > dPos.dx) ? 'left' : 'right';
-    dPos.state = itemW * 0.3 > Math.abs(dPos.x - dPos.dx);
+    dPos.state = itemW * 0.2 > Math.abs(dPos.x - dPos.dx);
     return dPos.state;
   },
   start: function(e){

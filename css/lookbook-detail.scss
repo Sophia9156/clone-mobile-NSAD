@@ -1,0 +1,19 @@
+@import '_common.scss';
+@import '_mixin.scss'; 
+
+
+
+.lookbook-content-wrap{
+  width: 100%;
+  margin: 0 auto;
+  margin-top : 65px;
+
+  .lookbook-img-wrap{
+    display: flex;
+    overflow: hidden;
+    li{
+      width: 100%;
+      img{width: 100%;}
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@import '_common.scss';
+@import '_mixin.scss'; 
+
+
+
+@include glitch;
+
+.lookbook-content-wrap{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 15px;
+
+  .content{
+    .content-indi{
+      margin: 50px auto;
+      text-align: center;
+      @include flex(center,center,nowrap,row);
+
+      .prev-btn{
+        margin: 0 30px;
+        span{
+          display: inline-block;
+          width: 15px; height: 15px;
+          border-left: 1px solid #888;
+          border-bottom: 1px solid #888;
+          transform: rotate(45deg);
+        }
+      }
+      .page-num{
+        color: #bbb;
+        b{color: #666;}
+      }
+      .next-btn{
+        margin: 0 30px;
+        span{
+          display: inline-block;
+          width: 15px; height: 15px;
+          border-right: 1px solid #888;
+          border-top: 1px solid #888;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+.lookbook-unit{
+  transform: translateY(30%);
+  opacity: 0;
+  transition: 1s;
+
+  .lookbook-thumb{
+    img{width: 100%;}
+  }
+
+  .lookbook-title{
+    margin: 15px 0 30px;
+    h4{font-size: 20px; color: #222; margin-bottom: 5px;}
+  }
+}
+.lookbook-unit.active{
+  transform: translateY(0);
+  opacity: 1;
+}

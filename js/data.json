@@ -488,5 +488,80 @@
       "date":"2021.07.30 ~ 2021.08.31",
       "thumb":"img/event/thumb23.jpg"
     }
+  ],
+  "lookbook":[
+    {
+      "thumb":"img/lookbook/thumb01.png",
+      "title":"2021 F/W LOOKBOOK"
+    },
+    {
+      "thumb":"img/lookbook/thumb02.jpg",
+      "title":"2021 S/S LOOKBOOK"
+    },
+    {
+      "thumb":"img/lookbook/thumb03.jpg",
+      "title":"2020 F/W LOOKBOOK"
+    }
+  ],
+  "lookbookImg":[
+    {
+      "img01":"img/lookbook/2021_lookbook_fw1.jpg",
+      "img02":"img/lookbook/2021_lookbook_fw2.jpg",
+      "img03":"img/lookbook/2021_lookbook_fw3.jpg",
+      "img04":"img/lookbook/2021_lookbook_fw4.jpg",
+      "img05":"img/lookbook/2021_lookbook_fw5.jpg",
+      "img06":"img/lookbook/2021_lookbook_fw6.jpg",
+      "img07":"img/lookbook/2021_lookbook_fw7.jpg",
+      "img08":"img/lookbook/2021_lookbook_fw8.jpg",
+      "img09":"img/lookbook/2021_lookbook_fw9.jpg",
+      "img10":"img/lookbook/2021_lookbook_fw10.jpg",
+      "img11":"img/lookbook/2021_lookbook_fw11.jpg",
+      "img12":"img/lookbook/2021_lookbook_fw12.jpg",
+      "img13":"img/lookbook/2021_lookbook_fw13.jpg",
+      "img14":"img/lookbook/2021_lookbook_fw14.jpg",
+      "img15":"img/lookbook/2021_lookbook_fw15.jpg",
+      "img16":"img/lookbook/2021_lookbook_fw16.jpg",
+      "img17":"img/lookbook/2021_lookbook_fw17.jpg",
+      "img18":"img/lookbook/2021_lookbook_fw18.jpg",
+      "img19":"img/lookbook/2021_lookbook_fw19.jpg",
+      "img20":"img/lookbook/2021_lookbook_fw20.jpg",
+      "img21":"img/lookbook/2021_lookbook_fw21.jpg",
+      "img22":"img/lookbook/2021_lookbook_fw22.jpg",
+      "img23":"img/lookbook/2021_lookbook_fw23.jpg"
+    },
+    {
+      "img01":"img/lookbook/2021_lookbook_1.jpg",
+      "img02":"img/lookbook/2021_lookbook_2.jpg",
+      "img03":"img/lookbook/2021_lookbook_3.jpg",
+      "img04":"img/lookbook/2021_lookbook_4.jpg",
+      "img05":"img/lookbook/2021_lookbook_5.jpg",
+      "img06":"img/lookbook/2021_lookbook_6.jpg",
+      "img07":"img/lookbook/2021_lookbook_7.jpg",
+      "img08":"img/lookbook/2021_lookbook_8.jpg",
+      "img09":"img/lookbook/2021_lookbook_9.jpg",
+      "img10":"img/lookbook/2021_lookbook_10.jpg"
+    },
+    {
+      "img01":"img/lookbook/2020_lookbook_1.jpg",
+      "img02":"img/lookbook/2020_lookbook_2.jpg",
+      "img03":"img/lookbook/2020_lookbook_3.jpg",
+      "img04":"img/lookbook/2020_lookbook_4.jpg",
+      "img05":"img/lookbook/2020_lookbook_5.jpg",
+      "img06":"img/lookbook/2020_lookbook_6.jpg",
+      "img07":"img/lookbook/2020_lookbook_7.jpg",
+      "img08":"img/lookbook/2020_lookbook_8.jpg",
+      "img09":"img/lookbook/2020_lookbook_9.jpg",
+      "img10":"img/lookbook/2020_lookbook_10.jpg",
+      "img11":"img/lookbook/2020_lookbook_11.jpg",
+      "img12":"img/lookbook/2020_lookbook_12.jpg",
+      "img13":"img/lookbook/2020_lookbook_13.jpg",
+      "img14":"img/lookbook/2020_lookbook_14.jpg",
+      "img15":"img/lookbook/2020_lookbook_15.jpg",
+      "img16":"img/lookbook/2020_lookbook_16.jpg",
+      "img17":"img/lookbook/2020_lookbook_17.jpg",
+      "img18":"img/lookbook/2020_lookbook_18.jpg",
+      "img19":"img/lookbook/2020_lookbook_19.jpg",
+      "img20":"img/lookbook/2020_lookbook_20.jpg"
+    }
   ]
 }

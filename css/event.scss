@@ -83,6 +83,10 @@
   }
 }
 .event-unit{
+  transform: translateY(30%);
+  opacity: 0;
+  transition: 1s;
+
   .event-img{
     img{width: 100%;}
   }
@@ -91,4 +95,8 @@
     margin: 15px 0 30px;
     h4{font-size: 20px; color: #222; margin-bottom: 5px;}
   }
+}
+.event-unit.active{
+  transform: translateY(0);
+  opacity: 1;
 }
