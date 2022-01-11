@@ -1,3 +1,5 @@
+
+// 팝업창 하루동안 보이지 않기
 const todayNoShow = document.querySelector('.popup-bottom');
 
 todayNoShow.onclick = function(){
@@ -16,6 +18,7 @@ $('.popup-close').on('click',function(){
 })
 
 
+// 메인 슬라이드 상태바 움직이기
 let interval, num=1;
 let clear = function(){
   clearInterval(interval);
@@ -33,6 +36,17 @@ $('.slide-nav').html(`01`);
 barMove();
 
 
+// 하단 이벤트 슬라이드 표시
+const elEvent = document.querySelector('.event');
+
+window.onload = function(){
+  setTimeout(function(){
+    elEvent.classList.add('active');
+  },300)
+}
+
+
+// 하단 이벤트 슬라이드 터치로 움직이기
 let dPos = {x:0, dx:0, dir:'left'};
 let itemW = $('.eventSlide1').width();
 let current = 0;
@@ -66,13 +80,3 @@ $('.event-slide-bg').draggable({
     }
   }
 });
-
-const elEvent = document.querySelector('.event');
-
-window.onscroll = function(){
-  setTimeout(function(){
-    if(elEvent.offsetTop - window.innerHeight < window.scrollY){
-      elEvent.classList.add('active');
-    }
-  },300)
-}

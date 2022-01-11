@@ -121,14 +121,16 @@ let scrollState = function(){
   pos.dy = pos.y;
 };
 
+const category = document.querySelector('.product-list-top-wrap');
 $(window).on('scroll',function(){
   scrollState();
   if(pos.state){
     $('.title-wrap').addClass('active');
     $('.product-list-category-wrap').css({transform:'translateY(-100%)'});
   }else{
-    if($('.product-list-top-wrap').offset().top == window.scrollY){console.log('hi')}
-    $('.title-wrap').removeClass('active');
-    $('.product-list-category-wrap').css({transform:'translateY(0)'});
+    if(category.offsetTop > window.scrollY){
+      $('.title-wrap').removeClass('active');
+      $('.product-list-category-wrap').css({transform:'translateY(0)'});
+    }
   }
 });

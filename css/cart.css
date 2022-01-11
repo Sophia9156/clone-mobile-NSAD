@@ -274,8 +274,8 @@ table {
 
 .order-tab-wrap li {
   width: 90%;
-  margin: 0 auto;
-  min-height: 250px;
+  margin: 30px auto;
+  min-height: 80px;
   display: none;
 }
 
@@ -292,6 +292,7 @@ table {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 50px;
 }
 
 .order-tab-wrap .empty p {
