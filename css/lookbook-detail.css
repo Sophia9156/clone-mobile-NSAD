@@ -42,13 +42,17 @@ table {
   width: 100%;
   margin: 0 auto;
   margin-top: 65px;
+  overflow: hidden;
+  position: relative;
 }
 
 .lookbook-content-wrap .lookbook-img-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .lookbook-content-wrap .lookbook-img-wrap li {
@@ -57,5 +61,54 @@ table {
 
 .lookbook-content-wrap .lookbook-img-wrap li img {
   width: 100%;
+}
+
+.lookbook-content-wrap .indi-wrap {
+  width: 90%;
+  margin: 50px auto;
+}
+
+.lookbook-content-wrap .indi-wrap .indi-arrow-wrap span {
+  position: absolute;
+}
+
+.lookbook-content-wrap .indi-wrap .indi-arrow-wrap .arrow-prev {
+  left: 30px;
+  top: calc(50% - 100px);
+  width: 40px;
+  height: 40px;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.lookbook-content-wrap .indi-wrap .indi-arrow-wrap .arrow-next {
+  right: 30px;
+  top: calc(50% - 100px);
+  width: 40px;
+  height: 40px;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.lookbook-content-wrap .indi-wrap .indi-dot {
+  width: 100%;
+  text-align: center;
+}
+
+.lookbook-content-wrap .indi-wrap .indi-dot span {
+  display: inline-block;
+  margin: 0 5px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #000;
+  border-radius: 100%;
+}
+
+.lookbook-content-wrap .indi-wrap .indi-dot span.active {
+  background-color: #000;
 }
 /*# sourceMappingURL=lookbook-detail.css.map */
