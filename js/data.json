@@ -374,7 +374,8 @@
     {
       "title":"SPECIAL GIFT",
       "date":"2021.10.25 ~ 2022.03.31",
-      "thumb":"img/event/thumb01.jpg"
+      "thumb":"img/event/thumb01.jpg",
+      "full":"img/event/detail01.jpg"
     }
   ],
   "expiredEvent":[

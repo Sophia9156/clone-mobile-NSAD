@@ -1,0 +1,47 @@
+@import '_common.scss';
+@import '_mixin.scss';
+
+
+
+@include glitch;
+
+  .tab-wrap{
+    width: 70%;
+    margin: 35px auto 0;
+    @include flex(center,center,nowrap,row);
+
+    li{
+      width: 50%; height: 40px;
+      text-align: center;
+      border-bottom: 2px solid #ddd;
+      font-weight: bold; color: #bbb;
+      a{color: #bbb;}
+    }
+    li.active{
+      border-bottom: 2px solid #000;
+      font-weight: bold; color: #000;
+      a{color: #000;}
+    }
+  }
+
+  .event-content{
+    width: 100%;
+    margin-top: 30px;
+
+    h4{width: 92%; margin: 0 auto; font-size: 22px; color: #333; letter-spacing: -0.5px;}
+    p{width: 92%; margin: 5px auto;  font-size: 14px; color: #aaa; letter-spacing: -0.5px;}
+    img{width: 100%; margin: 10px 0 40px;}
+  }
+
+  .comment-wrap{
+    width: 100%;
+    .comment{
+      padding: 10px 15px; font-size: 13px; color: #333;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+    .comment-login{
+      padding: 20px 0 50px; text-align: center; 
+      font-size: 13px; color: #333; font-weight: bold;
+    }
+  }

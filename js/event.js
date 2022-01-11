@@ -8,7 +8,7 @@ let dataChange = function(){
       let ongoingEvent = '';
       $.each(data.ongoingEvent,function(k,v){
         ongoingEvent +=`
-        <li class="event-unit">
+        <li class="event-unit"><a href="event-detail.html">
           <figure class="event-img">
             <img src="${v.thumb}" alt="">
           </figure>
@@ -16,7 +16,7 @@ let dataChange = function(){
             <h4>${v.title}</h4>
             <p>${v.date}</p>
           </div>
-        </li>`;
+        </a></li>`;
       });
       $('.ongoing-event-wrap').html(ongoingEvent);
 

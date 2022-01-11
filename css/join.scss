@@ -1,0 +1,49 @@
+@import '_common.scss';
+@import '_mixin.scss';
+
+
+@include glitch;
+
+.text{
+  width: 80%;
+  margin: 30px auto;
+  text-align: center;
+  p{font-size: 19px;}
+}
+.btn-wrap{
+  width: 92%;
+  margin: 10px auto;
+  .join-btn{
+    width: 100%;
+    button{
+      width: 100%; height: 45px;
+      border-radius: 45px;
+      border: none;
+      background-color: $blue;
+      color: #fff; font-weight: 600;
+    }
+  }
+  .for-members{
+    width: 100%;
+    margin: 5px auto;
+    text-align: center; font-size: 13px; color: #bbb;
+    a{color: $blue;}
+  }
+}
+.sns-user{
+  width: 100%;
+  margin: 30px 0; text-align: center;
+
+  h4{
+    font-weight: 400; font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .sns-btn{
+    button{
+      margin-top: 10px;
+      border: none;
+      background-color: transparent;
+      img{width: 100%;}
+    }
+  }
+}
