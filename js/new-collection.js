@@ -2,6 +2,7 @@ let dataChange = function(){
   $.ajax({
     url:'js/data.json',
     success: function(data){
+      // 상품 목록 뿌리기
       let productList = '';
       for(let i=0; i<20; i++){
         productList += `<li>
@@ -21,6 +22,7 @@ let dataChange = function(){
 
       $('.product-list-box-all').html(productList);
 
+      // SHOW MORE 눌렀을 때 상품 더 뿌리기
       let clickNum = 0;
       $('.display-more-wrap').on('click',function(){
         clickNum++;
@@ -41,6 +43,7 @@ let dataChange = function(){
                             </li>`;
           }
         }else{
+          // 아직 안 보여준 상품이 20개 보다 적을 때 상품 뿌리기
           productList += `<li>
                               <div class="product-img-box">
                                 <a href="product-detail.html">
@@ -60,8 +63,10 @@ let dataChange = function(){
         $('.product-list-box-all').html(productList);
       });
       
+      // 상품 개수 표시하기
       $('.product-list-total em').html(data.newCollection.length);
 
+      // 클릭한 제품의 인덱스 로컬스토리지에 남기기
       $('.product-list-box li').on('click',function(){
         localStorage.idx = $(this).index();
       });
@@ -74,7 +79,7 @@ dataChange();
 
 
 
-
+// 카테고리 인덱스 활성화 표시
 $('.product-list-category li').eq(0).addClass('active');
 $('.product-list-box-wrap ul').eq(0).addClass('active');
 
@@ -91,7 +96,7 @@ $('.product-list-category li').on('click',function(){
 
 
 
-
+// 보기 타입 전환
 $('#view-type-grid').addClass('active');
 $('.product-list-box').removeClass('list');
 
@@ -108,7 +113,7 @@ $('#view-type-grid').on('click',function(){
 
 
 
-
+// 스크롤시 타이틀 표시 변환
 let pos = {y:0,dy:0,state:true};
 let scrollState = function(){
   pos.y = window.scrollY;
@@ -122,6 +127,7 @@ $(window).on('scroll',function(){
     $('.title-wrap').addClass('active');
     $('.product-list-category-wrap').css({transform:'translateY(-100%)'});
   }else{
+    if($('.product-list-top-wrap').offset().top == window.scrollY){console.log('hi')}
     $('.title-wrap').removeClass('active');
     $('.product-list-category-wrap').css({transform:'translateY(0)'});
   }
