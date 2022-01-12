@@ -41,13 +41,78 @@
         <p>장바구니에 담긴 상품이 없습니다.</p>
       </li>
       <li class="filled">
+        <div class="select-wrap">
+          <div class="select-all">
+            <input type="checkbox" id="selectAll" name="selectAll">
+            <label for="selectAll">
+              <span class="material-icons-outlined">
+                check_circle
+              </span>
+              전체선택
+            </label>
+          </div>
+          <div class="select-delete">
+            <button>선택 상품 삭제</button>
+          </div>
+        </div>
         <ul class="product-list-wrap">
           <li class="product-unit">
-            <figure><img src="img/new-collection/thumb01.jpg" alt=""></figure>
-            <p class="product-name">PRODUCT01</p>
-            <p class="price"></p>
+            <div class="unit-top">
+              <div class="select-one">
+                <input type="checkbox" id="selectOne" name="selectOne">
+                <label for="selectOne">
+                  <span class="material-icons-outlined">
+                    check_circle
+                  </span>
+                </label>
+              </div>
+              <figure><img src="img/new-collection/thumb01.jpg" alt=""></figure>
+              <div class="product-info">
+                <p class="product-name">PRODUCT01</p>
+                <p class="product-size">사이즈 : L [05]</p>
+                <p class="product-quantity">수량 : 1개</p>
+                <p class="product-price">￦299,000</p>
+              </div>
+              <div class="product-unit-close">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <p class="unit-bottom">기본-금액별배송비 ￦0 (택배-선결제)</p>
           </li>
         </ul>
+        <div class="buy-total-wrap">
+          <div class="buy-total-top">
+            <dl>
+              <dt>선택 상품 수</dt>
+              <dd>
+                <strong id="totalQuantity">1</strong>개
+              </dd>
+            </dl>
+            <dl>
+              <dt>총 상품 금액</dt>
+              <dd>
+                ￦<strong id="totalPrice">299,000</strong>
+              </dd>
+            </dl>
+            <dl>
+              <dt>배송비</dt>
+              <dd>
+                ￦<strong id="deliveryFee">0</strong>
+              </dd>
+            </dl>
+          </div>
+          <div class="buy-total-middle">
+            <dl>
+              <dt>TOTAL</dt>
+              <dd>￦<strong id="totalPriceSum">299,000</strong></dd>
+            </dl>
+          </div>
+          <div class="buy-total-bottom">
+            <button>선택 상품 주문</button>
+            <button>전체 상품 주문</button>
+          </div>
+        </div>
       </li>
     </ul>
 

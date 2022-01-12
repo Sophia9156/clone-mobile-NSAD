@@ -9,7 +9,7 @@
 
 .order-status{
   width: 90%;
-  margin: 0 auto;
+  margin: 30px auto;
   text-align: center;
 
   span{
@@ -25,17 +25,153 @@
 }
 
 .order-tab-wrap{
-  li{
-    width: 90%; margin: 30px auto;
-    min-height: 80px;
+  &>li{
+    width: 92%; margin: 30px auto;
+    min-height: 150px;
     display: none;
   }
-  li.active{
-    display: flex;
+  &>li.active{
+    display: block;
+  }
+}
+
+.empty{
+  padding-top: 50px;
+  p{text-align: center; font-size: 13px; color: #444; font-weight: 600;}
+}
+
+.filled{
+  width: 100%;
+
+  .select-wrap{
+    padding: 15px 0;
+    @include flex(space-between,center,nowrap,row);
+    border-bottom: 2px solid #000;
+
+    .select-all{
+      input{display: none;}
+      label{
+        font-size: 12px; color: #aaa;
+        span{
+          display: inline-block;
+          font-size: 22px; color: #ddd;
+          transform: translateY(6px);
+          margin-right: 5px;
+        }
+      }
+      input:checked + label{
+        span{color: #000;}
+      }
+    }
+
+    .select-delete{
+      button{
+        padding: 5px 10px;
+        background-color: #fff;
+        font-size: 12px; color: $blue; 
+        border: 2px solid $blue;
+        border-radius: 30px;
+      }
+    }
   }
 
-  .empty{
-    justify-content: center; align-items: center; padding-top: 50px;
-    p{text-align: center; font-size: 13px; color: #444; font-weight: 600;}
+  .product-list-wrap{
+    .product-unit{
+      padding: 20px 0;
+      border-bottom: 1px solid #000;
+      .unit-top{
+        @include flex(space-between,flex-start,nowrap,row);
+        .select-one{
+          align-self: center;
+          input{display: none;}
+          label{
+            span{
+              font-size: 22px; color: #ddd;
+              margin-right: 5px;
+            }
+          }
+          input:checked + label{
+            span{color: #000;}
+          }
+        }
+        figure{
+          width: 100px; height: 100px;
+          img{width: 100%;}
+        }
+        .product-info{
+          width: 57%;
+          .product-name{
+            font-size: 18px; font-weight: bold; color: #000;
+          }
+          .product-size{
+            margin: 10px 0;
+            font-size: 13px; color: #333;
+          }
+          .product-quantity{
+            font-size: 13px; color: #333;
+          }
+          .product-price{
+            margin: 5px 0 10px;
+            font-size: 18px; font-weight: bold; color: #000;
+          }
+        }
+        .product-unit-close{
+          position: relative;
+          span{
+            position: absolute;
+            right: 10px; top: 10px;
+            display: block;
+            width: 20px; height: 1px;
+            background-color: #888;
+          }
+          span:nth-of-type(1){transform: rotate(45deg);}
+          span:nth-of-type(2){transform: rotate(-45deg);}
+        }
+      }
+      .unit-bottom{
+        font-size: 12px; color: #aaa;
+        margin-left: 40px;
+      }
+    }
+  }
+
+  .buy-total-wrap{
+    width: 100%;
+    margin: 30px 0; padding: 25px;
+    background-color: $blue;
+    border-radius: 60px;
+
+    .buy-total-top{
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      dl{
+        @include flex(space-between,center,nowrap,row);
+        font-size: 13px; color: #fff;
+      }
+    }
+    .buy-total-middle{
+      dl{
+        @include flex(space-between,center,nowrap,row);
+        color: #fff;
+        dt{font-size: 17px;}
+        dd{font-size: 22px;}
+      }
+    }
+    .buy-total-bottom{
+      margin-top: 30px;
+      button{
+        width: 100%;
+        margin: 10px 0; padding: 15px 0;
+        display: block;
+        border: 2px solid #fff; border-radius: 30px;
+        font-size: 18px;
+      }
+      button:nth-of-type(1){
+        background-color: $blue; color: #fff;
+      }
+      button:nth-of-type(2){
+        background-color: #fff; color: $blue;
+      }
+    }
   }
 }
