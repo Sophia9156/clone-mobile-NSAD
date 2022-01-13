@@ -67,7 +67,13 @@ let dataChange = function(){
       // 카테고리 인덱스 활성화 표시, 상품 개수 표시하기
       $('.product-list-category li').eq(0).addClass('active');
       $('.product-list-box-wrap ul').eq(0).addClass('active');
-      $('.product-list-total em').html(data.newCollection.length);
+      window.onload = function(){
+        if($('.product-list-box-all').hasClass('active')){
+          $('.product-list-total em').html(data.newCollection.length);
+        }else{
+          $('.product-list-total em').html('0');
+        }
+      };
 
       let idx=0;
       $('.product-list-category li').on('click',function(){
@@ -79,7 +85,7 @@ let dataChange = function(){
         $('.product-list-category li').eq(idx).addClass('active');
         $('.product-list-box-wrap ul').eq(idx).addClass('active');
 
-        if($('.product-list-box-wrap ul').eq(0).hasClass('active')){
+        if($('.product-list-box-all').hasClass('active')){
           $('.product-list-total em').html(data.newCollection.length);
         }else{
           $('.product-list-total em').html('0');

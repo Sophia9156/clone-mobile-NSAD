@@ -78,16 +78,20 @@ main{
   4%{transform: translate(-5px, 2px);}
   5%{transform: translate(0, 0);}
   32%{opacity: 1;}
-  33%{opacity: 0;}
-  66%{}
+  33%{opacity: 0; width: 100%; max-width: 760px;}
+  34%{width: 0;}
+  97%{width: 0;}
+  98%{width: 100%; max-width: 760px;}
   99%{opacity: 0;}
   100%{opacity: 1;}
 }
 @keyframes subSlide {
   0%{opacity: 1;}
   32%{opacity: 1;}
-  33%{opacity: 0;}
-  66%{}
+  33%{opacity: 0; width: 100%; max-width: 760px;}
+  34%{width: 0;}
+  97%{width: 0;}
+  98%{width: 100%; max-width: 760px;}
   99%{opacity: 0;}
   100%{opacity: 1;}
 }
