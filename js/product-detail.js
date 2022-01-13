@@ -66,9 +66,10 @@ let dataChange = function(){
       $('.product-name').html(productName);
 
       let productPrice = '';
+      let productPriceString = data.newCollection[localStorage.productIdx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
       $.each(data.newCollection,function(k,v){
         productPrice = `
-        <p>￦ ${data.newCollection[localStorage.productIdx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</p>`;
+        <p>￦ ${productPriceString}</p>`;
       });
       $('.product-name').append(productPrice);
 
@@ -105,7 +106,7 @@ let dataChange = function(){
       let buyPrice = '',selectSize;
       $.each(data.newCollection,function(k,v){
         buyPrice = `
-        ￦ <span>${data.newCollection[localStorage.productIdx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>`;
+        ￦ <span>${productPriceString}</span>`;
       });
       $('.buy-cart-total').html(buyPrice);
 
@@ -128,7 +129,7 @@ let dataChange = function(){
                 <span class="material-icons-outlined">add</span>
               </button>
             </div>
-            <div class="selected-size-price">￦ <span>${data.newCollection[localStorage.productIdx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span></div>
+            <div class="selected-size-price">￦ <span>${productPriceString}</span></div>
             <div class="selected-size-delete">
               <span></span>
               <span></span>
@@ -204,7 +205,7 @@ let dataChange = function(){
 
       $('.buy-cart-btn').on('click',function(){
         $('.buy-cart-box-wrap').addClass('active');
-        $('.buy-cart-total span').html(data.newCollection[localStorage.productIdx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+        $('.buy-cart-total span').html(productPriceString);
       });
 
       // BUY NOW or CART 버튼 열렸을 때 닫기
