@@ -1,5 +1,4 @@
 let quantity = 0,totalBuyQuantity = 0;
-$('header .cart span').text(localStorage.buyquantity);
 
 let dataChange = function(){
   $.ajax({
@@ -10,8 +9,8 @@ let dataChange = function(){
       let productImg = '';
       $.each(data.newCollection,function(k,v){
         productImg = `
-          <p><img src="${data.newCollection[localStorage.idx].full1}" alt=""></p>
-          <p><img src="${data.newCollection[localStorage.idx].full2}" alt=""></p>`;
+          <p><img src="${data.newCollection[localStorage.productIdx].full1}" alt=""></p>
+          <p><img src="${data.newCollection[localStorage.productIdx].full2}" alt=""></p>`;
       });
       $('.title-img-slide-wrap').html(productImg);
 
@@ -62,14 +61,14 @@ let dataChange = function(){
       let productName = '';
       $.each(data.newCollection,function(k,v){
         productName = `
-        <h4>${data.newCollection[localStorage.idx].name}</h4>`;
+        <h4>${data.newCollection[localStorage.productIdx].name}</h4>`;
       });
       $('.product-name').html(productName);
 
       let productPrice = '';
       $.each(data.newCollection,function(k,v){
         productPrice = `
-        <p>￦ ${data.newCollection[localStorage.idx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</p>`;
+        <p>￦ ${data.newCollection[localStorage.productIdx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</p>`;
       });
       $('.product-name').append(productPrice);
 
@@ -78,8 +77,8 @@ let dataChange = function(){
         productDetailImg = `
         <img src="img/new-collection/common1.jpg" alt="">
         <img src="img/new-collection/common2.jpg" alt="">
-        <img src="${data.newCollection[localStorage.idx].detail1}" alt="">
-        <img src="${data.newCollection[localStorage.idx].detail2}" alt="">
+        <img src="${data.newCollection[localStorage.productIdx].detail1}" alt="">
+        <img src="${data.newCollection[localStorage.productIdx].detail2}" alt="">
         <img src="img/new-collection/common3.jpg" alt="">
         <img src="img/new-collection/common4.jpg" alt="">`;
       });
@@ -88,7 +87,7 @@ let dataChange = function(){
       let productBenefit = '';
       $.each(data.newCollection,function(k,v){
         productBenefit = `
-        <p>적립 마일리지 : <b>+${data.newCollection[localStorage.idx].price*0.05}원</b> [상품 : ${(data.newCollection[localStorage.idx].price*0.05).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}원]</p>`;
+        <p>적립 마일리지 : <b>+${data.newCollection[localStorage.productIdx].price*0.05}원</b> [상품 : ${(data.newCollection[localStorage.productIdx].price*0.05).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}원]</p>`;
       });
       $('.product-info-benefit dd').append(productBenefit);
 
@@ -96,17 +95,17 @@ let dataChange = function(){
       $.each(data.newCollection,function(k,v){
         productBenefit2 = `
         <dt>구매혜택</dt>
-        <dd>적립 마일리지 : +${data.newCollection[localStorage.idx].price*0.05}원 [상품 : ${(data.newCollection[localStorage.idx].price*0.05).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}원]</dd>`;
+        <dd>적립 마일리지 : +${data.newCollection[localStorage.productIdx].price*0.05}원 [상품 : ${(data.newCollection[localStorage.productIdx].price*0.05).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}원]</dd>`;
       });
       $('.product-detail-info-content').prepend(productBenefit2);
 
 
       // 상품 구매 정보 BUY 랑 CART
 
-      let buyPrice = '';
+      let buyPrice = '',selectSize;
       $.each(data.newCollection,function(k,v){
         buyPrice = `
-        ￦ <span>${data.newCollection[localStorage.idx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>`;
+        ￦ <span>${data.newCollection[localStorage.productIdx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>`;
       });
       $('.buy-cart-total').html(buyPrice);
 
@@ -114,7 +113,7 @@ let dataChange = function(){
 
       $('.buy-cart-size-btn button').on('click',function(){
         quantity++;
-        $('.buy-cart-total span').html((data.newCollection[localStorage.idx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+        $('.buy-cart-total span').html((data.newCollection[localStorage.productIdx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
         $(this).addClass('active');
         $('.buy-cart-size-add').addClass('active');
         $('.buy-cart-size-add').append(`
@@ -129,25 +128,26 @@ let dataChange = function(){
                 <span class="material-icons-outlined">add</span>
               </button>
             </div>
-            <div class="selected-size-price">￦ <span>${data.newCollection[localStorage.idx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span></div>
+            <div class="selected-size-price">￦ <span>${data.newCollection[localStorage.productIdx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span></div>
             <div class="selected-size-delete">
               <span></span>
               <span></span>
             </div>
           </li>
         `);
+        selectSize = $(this).attr('data-value');
 
         // 구매 수량 조절
 
         $('.quantity-less').on('click',function(){
           if(quantity > 1){quantity--;}
           $('.selected-size-quantity').html(quantity);
-          $('.buy-cart-total span').html((data.newCollection[localStorage.idx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+          $('.buy-cart-total span').html((data.newCollection[localStorage.productIdx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
         });
         $('.quantity-more').on('click',function(){
           if(quantity < 10){quantity++;}
           $('.selected-size-quantity').html(quantity);
-          $('.buy-cart-total span').html((data.newCollection[localStorage.idx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+          $('.buy-cart-total span').html((data.newCollection[localStorage.productIdx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
         });
 
         // 구매 수량 delete 했을 때
@@ -157,23 +157,30 @@ let dataChange = function(){
           $('.buy-cart-size-add').removeClass('active');
           $('.buy-cart-size-add').html('');
           quantity = 0;
-          $('.buy-cart-total span').html((data.newCollection[localStorage.idx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+          $('.buy-cart-total span').html((data.newCollection[localStorage.productIdx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
         });
 
       });
 
       // 수량 선택하고 BUY NOW or CART 버튼 눌렀을 때
+      // 로컬 스토리지에 구매수량 남기기
 
       $('.buy-btn').on('click',function(){
         if(quantity>=1){
           window.location.href = "login.html";
-          localStorage.buyquantity = quantity;
+          totalBuyQuantity += Number(quantity);
+          localStorage.buyquantity = totalBuyQuantity;
         }
       });
       $('.cart-btn').on('click',function(){
         if(quantity>=1){
           totalBuyQuantity += Number(quantity);
           localStorage.buyquantity = totalBuyQuantity;
+          localStorage.buyImageSrc = data.newCollection[localStorage.productIdx].thumb;
+          localStorage.buyProductName = data.newCollection[localStorage.productIdx].name;
+          localStorage.buyPrice = data.newCollection[localStorage.productIdx].price;
+          localStorage.buySize = selectSize;
+          
           $('.before-cart-wrap').addClass('active');          
           $('header .cart span').text(localStorage.buyquantity);
         };
@@ -193,7 +200,7 @@ let dataChange = function(){
 
       $('.buy-cart-btn').on('click',function(){
         $('.buy-cart-box-wrap').addClass('active');
-        $('.buy-cart-total span').html(data.newCollection[localStorage.idx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+        $('.buy-cart-total span').html(data.newCollection[localStorage.productIdx].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
       });
 
       // BUY NOW or CART 버튼 열렸을 때 닫기
@@ -204,7 +211,7 @@ let dataChange = function(){
         $('.buy-cart-size-add').removeClass('active');
         $('.buy-cart-size-add').html('');
         quantity = 0;
-        $('.buy-cart-total span').html((data.newCollection[localStorage.idx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+        $('.buy-cart-total span').html((data.newCollection[localStorage.productIdx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
       });
 
     }

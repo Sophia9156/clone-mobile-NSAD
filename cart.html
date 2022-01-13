@@ -56,7 +56,7 @@
           </div>
         </div>
         <ul class="product-list-wrap">
-          <li class="product-unit">
+          <!-- <li class="product-unit">
             <div class="unit-top">
               <div class="select-one">
                 <input type="checkbox" id="selectOne" name="selectOne">
@@ -70,8 +70,8 @@
               <div class="product-info">
                 <p class="product-name">PRODUCT01</p>
                 <p class="product-size">사이즈 : L [05]</p>
-                <p class="product-quantity">수량 : 1개</p>
-                <p class="product-price">￦299,000</p>
+                <p class="product-quantity">수량 : <span class="quantity">1</span>개</p>
+                <p class="product-price">￦<span class="price">299,000</span></p>
               </div>
               <div class="product-unit-close">
                 <span></span>
@@ -79,20 +79,20 @@
               </div>
             </div>
             <p class="unit-bottom">기본-금액별배송비 ￦0 (택배-선결제)</p>
-          </li>
+          </li> -->
         </ul>
         <div class="buy-total-wrap">
           <div class="buy-total-top">
             <dl>
               <dt>선택 상품 수</dt>
               <dd>
-                <strong id="totalQuantity">1</strong>개
+                <strong id="totalQuantity"></strong> 개
               </dd>
             </dl>
             <dl>
               <dt>총 상품 금액</dt>
               <dd>
-                ￦<strong id="totalPrice">299,000</strong>
+                ￦<strong id="totalPrice"></strong>
               </dd>
             </dl>
             <dl>
@@ -105,7 +105,7 @@
           <div class="buy-total-middle">
             <dl>
               <dt>TOTAL</dt>
-              <dd>￦<strong id="totalPriceSum">299,000</strong></dd>
+              <dd>￦<strong id="totalPriceSum"></strong></dd>
             </dl>
           </div>
           <div class="buy-total-bottom">

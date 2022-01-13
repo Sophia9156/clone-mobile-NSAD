@@ -124,6 +124,8 @@ table {
 
 .title-wrap.active .title-bg img {
   min-width: 400px;
+  -webkit-transform: translateY(-150px);
+          transform: translateY(-150px);
   z-index: -1;
 }
 
@@ -345,7 +347,7 @@ table {
       -ms-flex-direction: row;
           flex-direction: row;
   padding: 15px 25px 10px 25px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #ddd;
 }
 
 .product-list-wrap .product-list-category-wrap .product-list-category li {
@@ -469,6 +471,7 @@ table {
       -ms-flex-direction: row;
           flex-direction: row;
   background-color: #fff;
+  min-height: 150px;
 }
 
 .product-list-wrap .product-list-box-wrap .product-list-box .product-empty {
