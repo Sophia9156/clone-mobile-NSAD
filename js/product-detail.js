@@ -170,6 +170,10 @@ let dataChange = function(){
           window.location.href = "login.html";
           totalBuyQuantity += Number(quantity);
           localStorage.buyquantity = totalBuyQuantity;
+          localStorage.buyImageSrc = data.newCollection[localStorage.productIdx].thumb;
+          localStorage.buyProductName = data.newCollection[localStorage.productIdx].name;
+          localStorage.buyPrice = data.newCollection[localStorage.productIdx].price;
+          localStorage.buySize = selectSize;
         }
       });
       $('.cart-btn').on('click',function(){
