@@ -2,6 +2,7 @@
 // 장바구니에 담긴 상품이 없을 때
 if(!localStorage.buyquantity){
   $('.empty').addClass('active');
+  $('.filled').removeClass('active');
 }
 
 // 장바구니에 담긴 상품이 있을 때
@@ -85,7 +86,7 @@ selectOne.onclick = function(){
 // 선택 상품 삭제
 $('.select-delete').on('click',function(){
   if(selectOne.checked){
-    localStorage.buyquantity = '0';
+    localStorage.buyquantity = '';
     $('header .cart span').html(localStorage.buyquantity);
 
     buyProduct = '';
@@ -98,7 +99,7 @@ $('.select-delete').on('click',function(){
 
 // 개별 상품 삭제
 $('.product-unit-close').on('click',function(){
-  localStorage.buyquantity = '0';
+  localStorage.buyquantity = '';
   $('header .cart span').html(localStorage.buyquantity);
 
   buyProduct = '';
