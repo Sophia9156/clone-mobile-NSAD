@@ -1,12 +1,12 @@
 
 // 장바구니에 담긴 상품이 없을 때
-if(!localStorage.buyquantity){
+if(!localStorage.buyquantity || localStorage.buyquantity == '0'){
   $('.empty').addClass('active');
   $('.filled').removeClass('active');
 }
 
 // 장바구니에 담긴 상품이 있을 때
-if(localStorage.buyquantity){
+if(localStorage.buyquantity != '0'){
   $('.empty').removeClass('active');
   $('.filled').addClass('active');
 }
