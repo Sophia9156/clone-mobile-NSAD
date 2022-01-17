@@ -454,6 +454,7 @@ table {
   border: none;
   background-color: #ddd;
   border-radius: 40px;
+  outline: none;
 }
 
 .product-list-wrap .product-list-box-wrap .product-list-box {

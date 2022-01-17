@@ -22,6 +22,50 @@ let dataChange = function(){
 
       $('.product-list-box-all').html(productList);
 
+
+      
+      // 상품 정렬 바꾸기
+      let listSort = function(boolean){
+        data.newCollection.sort(function(a,b){
+          if(boolean){
+            return a.price - b.price;
+          }else{
+            return b.price - a.price;
+          }
+        });
+
+        productList = '';
+        for(let i=0; i<20; i++){
+          productList += `<li>
+                            <div class="product-img-box">
+                              <a href="product-detail.html">
+                                <img src="${data.newCollection[i].thumb}" alt="">
+                              </a>
+                            </div>
+                            <div class="product-info">
+                              <a href="product-detail.html">
+                                <h4>${data.newCollection[i].name}</h4>
+                                <span>￦${data.newCollection[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
+                              </a>
+                            </div>
+                          </li>`;
+        };
+  
+        $('.product-list-box-all').html(productList);
+
+      };
+
+      $('#sort').on('change',function(){
+        if($(this).val() == 'low'){
+          listSort(1);
+        }else if($(this).val() == 'high'){
+          listSort(0);
+        }else{
+          location.reload();
+        }
+      });
+
+
       // SHOW MORE 눌렀을 때 상품 더 뿌리기
       let clickNum = 0;
       $('.display-more-wrap').on('click',function(){
