@@ -1,32 +1,88 @@
+
+
 let dataChange = function(){
   $.ajax({
     url:'js/data.json',
     success: function(data){
-      // 상품 목록 뿌리기
-      let productList = '';
-      for(let i=0; i<20; i++){
-        productList += `<li>
-                          <div class="product-img-box">
-                            <a href="product-detail.html">
-                              <img src="${data.newCollection[i].thumb}" alt="">
-                            </a>
-                          </div>
-                          <div class="product-info">
-                            <a href="product-detail.html">
-                              <h4>${data.newCollection[i].name}</h4>
-                              <span>￦${data.newCollection[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
-                            </a>
-                          </div>
-                        </li>`;
+
+
+      // 상품 목록 뿌리기 & SHOW MORE 눌렀을 때 상품 더 뿌리기
+      const newCollection = data.newCollection;
+
+      let productList = '', clickNum = 0, i = 0;
+      let productListAdd = function(){
+        if(i < newCollection.length - 1){
+          for(i = clickNum*20; i < (clickNum*20)+20; i++){
+            productList += `<li data-name="${newCollection[i].name}">
+                              <div class="product-img-box">
+                                <a href="product-detail.html">
+                                  <img src="${newCollection[i].thumb}" alt="">
+                                </a>
+                              </div>
+                              <div class="product-info">
+                                <a href="product-detail.html">
+                                  <h4>${newCollection[i].name}</h4>
+                                  <span>￦${newCollection[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
+                                </a>
+                              </div>
+                            </li>`;
+          };
+          $('.product-list-box-all').html(productList);
+
+          // 클릭한 제품 로컬스토리지에 남기기
+          $('.product-list-box li').on('click',function(){
+            localStorage.productIdx = $(this).attr('data-name');
+          });
+        }else{
+          productList = '';
+          newCollection.forEach(function(newCollection){
+            productList += `<li data-name="${newCollection.name}">
+                              <div class="product-img-box">
+                                <a href="product-detail.html">
+                                  <img src="${newCollection.thumb}" alt="">
+                                </a>
+                              </div>
+                              <div class="product-info">
+                                <a href="product-detail.html">
+                                  <h4>${newCollection.name}</h4>
+                                  <span>￦${newCollection.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
+                                </a>
+                              </div>
+                            </li>`;
+          });
+          $('.product-list-box-all').html(productList);
+
+          // SHOW MORE 숨기기
+          $('.display-more-wrap').hide();
+
+
+          // 클릭한 제품 로컬스토리지에 남기기
+          $('.product-list-box li').on('click',function(){
+            localStorage.productIdx = $(this).attr('data-name');
+          });
+        }  
       };
+      productListAdd();
 
-      $('.product-list-box-all').html(productList);
 
 
-      
+      // 클릭한 제품 로컬스토리지에 남기기
+      $('.product-list-box li').on('click',function(){
+        localStorage.productIdx = $(this).attr('data-name');
+      });
+
+
+
+      // SHOW MORE 눌렀을 때 상품 더 뿌리기    
+      $('.display-more-wrap').on('click',function(){
+        clickNum++;
+        productListAdd();
+      });
+
+
       // 상품 정렬 바꾸기
       let listSort = function(boolean){
-        data.newCollection.sort(function(a,b){
+        newCollection.sort(function(a,b){
           if(boolean){
             return a.price - b.price;
           }else{
@@ -34,78 +90,23 @@ let dataChange = function(){
           }
         });
 
-        productList = '';
-        for(let i=0; i<20; i++){
-          productList += `<li>
-                            <div class="product-img-box">
-                              <a href="product-detail.html">
-                                <img src="${data.newCollection[i].thumb}" alt="">
-                              </a>
-                            </div>
-                            <div class="product-info">
-                              <a href="product-detail.html">
-                                <h4>${data.newCollection[i].name}</h4>
-                                <span>￦${data.newCollection[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
-                              </a>
-                            </div>
-                          </li>`;
-        };
-  
-        $('.product-list-box-all').html(productList);
+        productList = '', clickNum = 0, i = 0;
+        productListAdd();
 
       };
 
       $('#sort').on('change',function(){
         if($(this).val() == 'low'){
           listSort(1);
+          $('.display-more-wrap').show();
         }else if($(this).val() == 'high'){
           listSort(0);
+          $('.display-more-wrap').show();
         }else{
           location.reload();
         }
       });
-
-
-      // SHOW MORE 눌렀을 때 상품 더 뿌리기
-      let clickNum = 0;
-      $('.display-more-wrap').on('click',function(){
-        clickNum++;
-        if(clickNum == 1){
-          for(i=20*clickNum; i<20*(clickNum+1); i++){
-            productList += `<li>
-                              <div class="product-img-box">
-                                <a href="product-detail.html">
-                                  <img src="${data.newCollection[i].thumb}" alt="">
-                                </a>
-                              </div>
-                              <div class="product-info">
-                                <a href="product-detail.html">
-                                  <h4>${data.newCollection[i].name}</h4>
-                                  <span>￦${data.newCollection[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
-                                </a>
-                              </div>
-                            </li>`;
-          }
-        }else{
-          // 아직 안 보여준 상품이 20개 보다 적을 때 상품 뿌리기
-          productList += `<li>
-                              <div class="product-img-box">
-                                <a href="product-detail.html">
-                                  <img src="${data.newCollection[40].thumb}" alt="">
-                                </a>
-                              </div>
-                              <div class="product-info">
-                                <a href="product-detail.html">
-                                  <h4>${data.newCollection[40].name}</h4>
-                                  <span>￦${data.newCollection[40].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
-                                </a>
-                              </div>
-                            </li>`;
-          $('.display-more-wrap').hide();
-        }
-        
-        $('.product-list-box-all').html(productList);
-      });
+      
 
 
       // 카테고리 인덱스 활성화 표시, 상품 개수 표시하기
@@ -136,10 +137,6 @@ let dataChange = function(){
         }
       });
 
-      // 클릭한 제품의 인덱스 로컬스토리지에 남기기
-      $('.product-list-box li').on('click',function(){
-        localStorage.productIdx = $(this).index();
-      });
     }
   });
   //setTimeout(dataChange,600000);

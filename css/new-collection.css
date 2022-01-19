@@ -355,6 +355,7 @@ table {
   color: #ddd;
   font-size: 13px;
   font-weight: 900;
+  cursor: pointer;
 }
 
 .product-list-wrap .product-list-category-wrap .product-list-category li.active {
@@ -440,6 +441,7 @@ table {
 .product-list-wrap .product-list-category-wrap .product-list-top-wrap .product-list-sort-wrap .product-list-view-type li {
   margin: 0 3px;
   color: #ddd;
+  cursor: pointer;
 }
 
 .product-list-wrap .product-list-category-wrap .product-list-top-wrap .product-list-sort-wrap .product-list-view-type li.active {
