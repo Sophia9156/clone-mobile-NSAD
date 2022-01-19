@@ -7,6 +7,8 @@ let dataChange = function(){
 
       const newCollection = data.newCollection;
 
+
+      // 상품 정보 불러오기
       let productDetail = '';
       $.each(newCollection,function(k,v){
         if(localStorage.productIdx == v.name){
@@ -221,70 +223,104 @@ let dataChange = function(){
             </div>
           </div>
           `;
+
+
+          // BUY&CART 클릭했을 때 가격 불러오기
+          let buyPrice = '';
+          buyPrice = `
+          ￦ <span>${v.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>`;
+          $('.buy-cart-total').html(buyPrice);
+
+
+
+          // 구매 탭에서 사이즈 클릭했을 때
+          let buyLi = function(selectedSize,size){
+            $('.buy-cart-size-add').append(`
+              <li>
+                <p class="selected-size">${selectedSize.attr('data-value')}</p>
+                <div class="selected-size-quantity-wrap">
+                  <button class="quantity-less" data-value="${selectedSize.attr('data-value')}">
+                    <span class="material-icons-outlined">remove</span>
+                  </button>
+                  <span class="selected-size-quantity">${size}</span>
+                  <button class="quantity-more" data-value="${selectedSize.attr('data-value')}">
+                    <span class="material-icons-outlined">add</span>
+                  </button>
+                </div>
+                <div class="selected-size-price">￦ <span>${v.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span></div>
+                <div class="selected-size-delete">
+                  <span></span>
+                  <span></span>
+                </div>
+              </li>
+            `);
+          };
+          let quantity = {m: 0, l: 0, xl: 0};
+          $('.buy-cart-size-btn button').on('click',function(){
+            if($('.buy-cart-size-add li').length < 3){
+              if($(this).attr('data-value') == 'M [04]'){
+                quantity.m = 1;
+                buyLi($(this),quantity.m);                
+              }else if($(this).attr('data-value') == 'L [05]'){
+                quantity.l = 1;
+                buyLi($(this),quantity.l);
+              }else{
+                quantity.xl = 1;
+                buyLi($(this),quantity.xl);
+              }
+            }
+
+            
+
+            $('.buy-cart-total span').html((v.price*(quantity.m + quantity.l + quantity.xl)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+            $(this).addClass('active');
+            $('.buy-cart-size-add').addClass('active');
+
+
+            // 구매 수량 조절
+            $('.quantity-less').on('click',function(){
+              if($(this).attr('data-value') == 'M [04]'){
+                if(quantity.m > 1){quantity.m -= 1;}
+                $('.selected-size-quantity').html(quantity.m);
+              }else if($(this).attr('data-value') == 'L [05]'){
+                if(quantity.l > 1){quantity.l -= 1;}
+                $('.selected-size-quantity').html(quantity.l);
+              }else{
+                if(quantity.xl > 1){quantity.xl -= 1;}
+                $('.selected-size-quantity').html(quantity.xl);
+              }
+            });
+            $('.quantity-more').on('click',function(){
+              if($(this).attr('data-value') == 'M [04]'){
+                quantity.m += 1;
+                $('.selected-size-quantity').html(quantity.m);
+              }else if($(this).attr('data-value') == 'L [05]'){
+                quantity.l += 1;
+                $('.selected-size-quantity').html(quantity.l);
+              }else{
+                quantity.xl += 1;
+                $('.selected-size-quantity').html(quantity.xl);
+              }              
+            });
+
+
+            // 구매 수량 delete 했을 때
+            $('.selected-size-delete').on('click',function(){
+              $('.buy-cart-size-btn button').removeClass('active');
+              $('.buy-cart-size-add').removeClass('active');
+              $('.buy-cart-size-add').html('');
+              quantity = {m: 0, l: 0, xl: 0};
+              $('.buy-cart-total span').html((v.price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+            });
+
+          });
+
+
+
+
         }
         $('section').html(productDetail);
 
-
-        // 상품 구매 정보 BUY 랑 CART
-        let buyPrice = '',selectSize;
-        buyPrice = `
-        ￦ <span>${v.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>`;
-        $('.buy-cart-total').html(buyPrice);
-
-
-
-        // 구매 탭에서 사이즈 클릭했을 때
-        $('.buy-cart-size-btn button').on('click',function(){
-
-          quantity++;
-          $('.buy-cart-total span').html((v.price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
-          $(this).addClass('active');
-          $('.buy-cart-size-add').addClass('active');
-          $('.buy-cart-size-add').append(`
-            <li>
-              <p class="selected-size">${$(this).attr('data-value')}</p>
-              <div class="selected-size-quantity-wrap">
-                <button class="quantity-less">
-                  <span class="material-icons-outlined">remove</span>
-                </button>
-                <span class="selected-size-quantity">${quantity}</span>
-                <button class="quantity-more">
-                  <span class="material-icons-outlined">add</span>
-                </button>
-              </div>
-              <div class="selected-size-price">￦ <span>${v.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span></div>
-              <div class="selected-size-delete">
-                <span></span>
-                <span></span>
-              </div>
-            </li>
-          `);
-          selectSize = $(this).attr('data-value');
-
-
-          // 구매 수량 조절
-          $('.quantity-less').on('click',function(){
-            if(quantity > 1){quantity--;}
-            $('.selected-size-quantity').html(quantity);
-            $('.buy-cart-total span').html((data.newCollection[localStorage.productIdx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
-          });
-          $('.quantity-more').on('click',function(){
-            if(quantity < 10){quantity++;}
-            $('.selected-size-quantity').html(quantity);
-            $('.buy-cart-total span').html((data.newCollection[localStorage.productIdx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
-          });
-
-
-          // 구매 수량 delete 했을 때
-          $('.selected-size-delete').on('click',function(){
-            $('.buy-cart-size-btn button').removeClass('active');
-            $('.buy-cart-size-add').removeClass('active');
-            $('.buy-cart-size-add').html('');
-            quantity = 0;
-            $('.buy-cart-total span').html((data.newCollection[localStorage.productIdx].price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
-          });
-
-        });
 
 
 
@@ -422,7 +458,7 @@ let dataChange = function(){
         $('.product-detailImg-info-drop').toggleClass('active');
       });
 
-      
+
 
     }
   });
