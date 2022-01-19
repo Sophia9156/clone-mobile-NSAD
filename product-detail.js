@@ -242,7 +242,7 @@ let dataChange = function(){
                   <button class="quantity-less" data-value="${selectedSize.attr('data-value')}">
                     <span class="material-icons-outlined">remove</span>
                   </button>
-                  <span class="selected-size-quantity">${size}</span>
+                  <span class="selected-size-quantity" data-value="${selectedSize.attr('data-value')}"}>${size}</span>
                   <button class="quantity-more" data-value="${selectedSize.attr('data-value')}">
                     <span class="material-icons-outlined">add</span>
                   </button>
@@ -281,25 +281,37 @@ let dataChange = function(){
             $('.quantity-less').on('click',function(){
               if($(this).attr('data-value') == 'M [04]'){
                 if(quantity.m > 1){quantity.m -= 1;}
-                $('.selected-size-quantity').html(quantity.m);
+                if($('.selected-size-quantity').attr('data-value') == 'M [04]'){
+                  $('.selected-size-quantity').html(quantity.m);
+                }
               }else if($(this).attr('data-value') == 'L [05]'){
                 if(quantity.l > 1){quantity.l -= 1;}
-                $('.selected-size-quantity').html(quantity.l);
+                if($('.selected-size-quantity').attr('data-value') == 'L [05]'){
+                  $('.selected-size-quantity').html(quantity.l);
+                }
               }else{
                 if(quantity.xl > 1){quantity.xl -= 1;}
-                $('.selected-size-quantity').html(quantity.xl);
+                if($('.selected-size-quantity').attr('data-value') == 'XL [06]'){
+                  $('.selected-size-quantity').html(quantity.xl);
+                }
               }
             });
             $('.quantity-more').on('click',function(){
               if($(this).attr('data-value') == 'M [04]'){
                 quantity.m += 1;
-                $('.selected-size-quantity').html(quantity.m);
+                if($('.selected-size-quantity').attr('data-value') == 'M [04]'){
+                  $('.selected-size-quantity').html(quantity.m);
+                }
               }else if($(this).attr('data-value') == 'L [05]'){
                 quantity.l += 1;
-                $('.selected-size-quantity').html(quantity.l);
+                if($('.selected-size-quantity').attr('data-value') == 'L [05]'){
+                  $('.selected-size-quantity').html(quantity.l);
+                }
               }else{
                 quantity.xl += 1;
-                $('.selected-size-quantity').html(quantity.xl);
+                if($('.selected-size-quantity').attr('data-value') == 'XL [06]'){
+                  $('.selected-size-quantity').html(quantity.xl);
+                }
               }              
             });
 
@@ -365,7 +377,6 @@ let dataChange = function(){
 
         $('.buy-cart-btn').on('click',function(){
           $('.buy-cart-box-wrap').addClass('active');
-          $('.buy-cart-total span').html(productPriceString);
         });
 
         // BUY NOW or CART 버튼 열렸을 때 닫기
