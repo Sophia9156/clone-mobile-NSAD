@@ -11,7 +11,7 @@ let dataChange = function(){
       let productListAdd = function(){
         if(i < newCollection.length - 1){
           for(i = clickNum*20; i < (clickNum*20)+20; i++){
-            productList += `<li>
+            productList += `<li data-name="${newCollection[i].name}">
                               <div class="product-img-box">
                                 <a href="product-detail.html">
                                   <img src="${newCollection[i].thumb}" alt="">
@@ -25,10 +25,16 @@ let dataChange = function(){
                               </div>
                             </li>`;
           };
+          $('.product-list-box-all').html(productList);
+
+          // 클릭한 제품 로컬스토리지에 남기기
+          $('.product-list-box li').on('click',function(){
+            localStorage.productIdx = $(this).attr('data-name');
+          });
         }else{
           productList = '';
           newCollection.forEach(function(newCollection){
-            productList += `<li>
+            productList += `<li data-name="${newCollection.name}">
                               <div class="product-img-box">
                                 <a href="product-detail.html">
                                   <img src="${newCollection.thumb}" alt="">
@@ -42,11 +48,19 @@ let dataChange = function(){
                               </div>
                             </li>`;
           });
+          $('.product-list-box-all').html(productList);
+
+          // SHOW MORE 숨기기
           $('.display-more-wrap').hide();
+
+
+          // 클릭한 제품 로컬스토리지에 남기기
+          $('.product-list-box li').on('click',function(){
+            localStorage.productIdx = $(this).attr('data-name');
+          });
         }  
       };
       productListAdd();
-      $('.product-list-box-all').html(productList);
 
 
 
@@ -54,9 +68,7 @@ let dataChange = function(){
       $('.display-more-wrap').on('click',function(){
         clickNum++;
         productListAdd();
-        $('.product-list-box-all').html(productList);
       });
-
 
 
       // 상품 정렬 바꾸기
@@ -69,32 +81,18 @@ let dataChange = function(){
           }
         });
 
-        productList = '';
-        for(let i=0; i<20; i++){
-          productList += `<li>
-                            <div class="product-img-box">
-                              <a href="product-detail.html">
-                                <img src="${newCollection[i].thumb}" alt="">
-                              </a>
-                            </div>
-                            <div class="product-info">
-                              <a href="product-detail.html">
-                                <h4>${newCollection[i].name}</h4>
-                                <span>￦${newCollection[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>
-                              </a>
-                            </div>
-                          </li>`;
-        };
-  
-        $('.product-list-box-all').html(productList);
+        productList = '', clickNum = 0, i = 0;
+        productListAdd();
 
       };
 
       $('#sort').on('change',function(){
         if($(this).val() == 'low'){
           listSort(1);
+          $('.display-more-wrap').show();
         }else if($(this).val() == 'high'){
           listSort(0);
+          $('.display-more-wrap').show();
         }else{
           location.reload();
         }
@@ -130,10 +128,6 @@ let dataChange = function(){
         }
       });
 
-      // 클릭한 제품의 인덱스 로컬스토리지에 남기기
-      $('.product-list-box li').on('click',function(){
-        localStorage.productIdx = $(this).index();
-      });
     }
   });
   //setTimeout(dataChange,600000);
