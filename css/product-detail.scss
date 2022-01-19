@@ -433,7 +433,7 @@
         }
       }
 
-      .buy-cart-size-add.active{
+      .buy-cart-size-add{
         width: 100%;
         margin: 0 auto;
         border-bottom: 1px solid #ddd;
@@ -442,7 +442,8 @@
         flex-wrap: wrap;
         flex-direction: row;
 
-        li{
+        li{display: none;}
+        li.active{
           width: 100%; display: flex; justify-content: space-between; align-items: center;
           border-top: 1px solid #ddd;
           padding: 20px 0;
@@ -487,9 +488,6 @@
             }
           }
         }
-      }
-      .buy-cart-size-add{
-        display: none;
       }
     }
 

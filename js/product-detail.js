@@ -1,4 +1,5 @@
-let quantity = 0,totalBuyQuantity = 0;
+let totalBuyQuantity = 0;
+let quantity = {m: 0, l: 0, xl: 0};
 
 let dataChange = function(){
   $.ajax({
@@ -242,7 +243,7 @@ let dataChange = function(){
                   <button class="quantity-less" data-value="${selectedSize.attr('data-value')}">
                     <span class="material-icons-outlined">remove</span>
                   </button>
-                  <span class="selected-size-quantity" data-value="${selectedSize.attr('data-value')}"}>${size}</span>
+                  <span class="selected-size-quantity" data-value="${selectedSize.attr('data-value')}">${size}</span>
                   <button class="quantity-more" data-value="${selectedSize.attr('data-value')}">
                     <span class="material-icons-outlined">add</span>
                   </button>
@@ -254,13 +255,14 @@ let dataChange = function(){
                 </div>
               </li>
             `);
+            $('.buy-cart-size-add li').addClass('active');
           };
-          let quantity = {m: 0, l: 0, xl: 0};
+
           $('.buy-cart-size-btn button').on('click',function(){
-            if($('.buy-cart-size-add li').length < 3){
+            if($('.buy-cart-size-add li').length < $('.buy-cart-size-btn button').length){
               if($(this).attr('data-value') == 'M [04]'){
                 quantity.m = 1;
-                buyLi($(this),quantity.m);                
+                buyLi($(this),quantity.m); 
               }else if($(this).attr('data-value') == 'L [05]'){
                 quantity.l = 1;
                 buyLi($(this),quantity.l);
@@ -271,60 +273,52 @@ let dataChange = function(){
             }
 
             
-
+            // 최종 가격 보여주기
             $('.buy-cart-total span').html((v.price*(quantity.m + quantity.l + quantity.xl)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+            // 사이즈 버튼 활성화
             $(this).addClass('active');
-            $('.buy-cart-size-add').addClass('active');
 
 
             // 구매 수량 조절
-            $('.quantity-less').on('click',function(){
-              if($(this).attr('data-value') == 'M [04]'){
-                if(quantity.m > 1){quantity.m -= 1;}
-                if($('.selected-size-quantity').attr('data-value') == 'M [04]'){
-                  $('.selected-size-quantity').html(quantity.m);
-                }
-              }else if($(this).attr('data-value') == 'L [05]'){
-                if(quantity.l > 1){quantity.l -= 1;}
-                if($('.selected-size-quantity').attr('data-value') == 'L [05]'){
-                  $('.selected-size-quantity').html(quantity.l);
-                }
-              }else{
-                if(quantity.xl > 1){quantity.xl -= 1;}
-                if($('.selected-size-quantity').attr('data-value') == 'XL [06]'){
-                  $('.selected-size-quantity').html(quantity.xl);
-                }
-              }
-            });
-            $('.quantity-more').on('click',function(){
-              if($(this).attr('data-value') == 'M [04]'){
-                quantity.m += 1;
-                if($('.selected-size-quantity').attr('data-value') == 'M [04]'){
-                  $('.selected-size-quantity').html(quantity.m);
-                }
-              }else if($(this).attr('data-value') == 'L [05]'){
-                quantity.l += 1;
-                if($('.selected-size-quantity').attr('data-value') == 'L [05]'){
-                  $('.selected-size-quantity').html(quantity.l);
-                }
-              }else{
-                quantity.xl += 1;
-                if($('.selected-size-quantity').attr('data-value') == 'XL [06]'){
-                  $('.selected-size-quantity').html(quantity.xl);
+            $('.quantity-less').each(function(k,v){
+              v.onclick = function(){
+                if($(this).attr('data-value') == 'M [04]'){
+                  if(quantity.m > 1){quantity.m -= 1;}
+                  $('.selected-size-quantity[data-value="M [04]"]').html(quantity.m);
+                }else if($(this).attr('data-value') == 'L [05]'){
+                  if(quantity.l > 1){quantity.l -= 1;}
+                  $('.selected-size-quantity[data-value="L [05]"]').html(quantity.l);
+                }else{
+                  if(quantity.xl > 1){quantity.xl -= 1;}
+                  $('.selected-size-quantity[data-value="XL [06]"]').html(quantity.xl);
                 }
               }              
+            });
+            $('.quantity-more').each(function(k,v){
+              v.onclick = function(){
+                if($(this).attr('data-value') == 'M [04]'){
+                  quantity.m += 1;
+                  $('.selected-size-quantity[data-value="M [04]"]').html(quantity.m);
+                }else if($(this).attr('data-value') == 'L [05]'){
+                  quantity.l += 1;
+                  $('.selected-size-quantity[data-value="L [05]"]').html(quantity.l);
+                }else if($(this).attr('data-value') == 'XL [06]'){
+                  quantity.xl += 1;
+                  $('.selected-size-quantity[data-value="XL [06]"]').html(quantity.xl);
+                }
+              };
             });
 
 
             // 구매 수량 delete 했을 때
-            $('.selected-size-delete').on('click',function(){
-              $('.buy-cart-size-btn button').removeClass('active');
-              $('.buy-cart-size-add').removeClass('active');
-              $('.buy-cart-size-add').html('');
-              quantity = {m: 0, l: 0, xl: 0};
-              $('.buy-cart-total span').html((v.price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+            $('.selected-size-delete').each(function(k,v){
+              v.onclick = function(){
+                $(this).parent().removeClass('active');
+                quantity = {m: 0, l: 0, xl: 0};
+                $('.buy-cart-total span').html((v.price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+              }
+              // ******여기서부터 사이즈 버튼 클래스 제거하는 거 해야됨*******
             });
-
           });
 
 
@@ -339,7 +333,7 @@ let dataChange = function(){
         // 수량 선택하고 BUY NOW or CART 버튼 눌렀을 때
         // 로컬 스토리지에 구매수량 남기기
         $('.buy-btn').on('click',function(){
-          if(quantity>=1){
+          if(quantity.m>=1){
             window.location.href = "login.html";
             totalBuyQuantity += Number(quantity);
             localStorage.buyquantity = totalBuyQuantity;
