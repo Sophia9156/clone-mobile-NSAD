@@ -66,6 +66,13 @@ let dataChange = function(){
 
 
 
+      // 클릭한 제품 로컬스토리지에 남기기
+      $('.product-list-box li').on('click',function(){
+        localStorage.productIdx = $(this).attr('data-name');
+      });
+
+
+
       // SHOW MORE 눌렀을 때 상품 더 뿌리기    
       $('.display-more-wrap').on('click',function(){
         clickNum++;
