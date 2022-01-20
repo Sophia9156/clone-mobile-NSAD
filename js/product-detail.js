@@ -226,15 +226,24 @@ let dataChange = function(){
           `;
 
 
-          // BUY&CART 클릭했을 때 가격 불러오기
-          let buyPrice = '';
-          buyPrice = `
-          ￦ <span>${v.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span>`;
-          $('.buy-cart-total').html(buyPrice);
-
-
-
+          // 하단 BUY NOW or CART 버튼 눌렀을 때
           let productPrice = v.price;
+
+          $('.buy-cart-btn').on('click',function(){
+            $('.buy-cart-box-wrap').addClass('active');
+            $('.buy-cart-total span').html(v.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+          });
+
+          // BUY NOW or CART 버튼 열렸을 때 닫기
+
+          $('.buy-cart-box-close').on('click',function(){
+            $('.buy-cart-box-wrap').removeClass('active');
+            $('.buy-cart-size-btn button').removeClass('active');
+            $('.buy-cart-size-add').html('');
+            quantity = {m: 0, l: 0, xl: 0};
+          });
+        
+          
           let finalPrice;
           let showFinalPrice = function(){
             finalPrice = productPrice*(quantity.m + quantity.l + quantity.xl);
@@ -345,25 +354,27 @@ let dataChange = function(){
             // 수량 선택하고 BUY NOW or CART 버튼 눌렀을 때
             // 로컬 스토리지에 구매수량 남기기
             $('.buy-btn').on('click',function(){
-                window.location.href = "login.html";
+              if($('.buy-cart-box-wrap').hasClass('active'))window.location.href = "login.html";
             });
             $('.cart-btn').on('click',function(){
+              if($('.buy-cart-box-wrap').hasClass('active')){
                 localStorage.buyItem = localStorage.productIdx;
                 localStorage.M = quantity.m;
                 localStorage.L = quantity.l;
                 localStorage.XL = quantity.xl;
-                
+                  
 
-              $('.before-cart-wrap').addClass('active');          
-              $('header .cart span').text(localStorage.buyquantity);
+                $('.before-cart-wrap').addClass('active');          
+                $('header .cart span').text(localStorage.buyquantity);
 
-              $('.cart-cancle').on('click',function(){
-                $('.before-cart-wrap').removeClass('active');
-              });
+                $('.cart-cancle').on('click',function(){
+                  $('.before-cart-wrap').removeClass('active');
+                });
 
-              $('.cart-move').on('click',function(){
-                window.location.href = "cart.html";
-              })
+                $('.cart-move').on('click',function(){
+                  window.location.href = "cart.html";
+                });
+              }
             });
 
           });
@@ -371,24 +382,6 @@ let dataChange = function(){
         }
         $('section').html(productDetail);
 
-
-
-        // 하단 BUY NOW or CART 버튼 눌렀을 때
-
-        $('.buy-cart-btn').on('click',function(){
-          $('.buy-cart-box-wrap').addClass('active');
-        });
-
-        // BUY NOW or CART 버튼 열렸을 때 닫기
-
-        $('.buy-cart-box-close').on('click',function(){
-          $('.buy-cart-box-wrap').removeClass('active');
-          $('.buy-cart-size-btn button').removeClass('active');
-          $('.buy-cart-size-add').removeClass('active');
-          $('.buy-cart-size-add').html('');
-          quantity = 0;
-          $('.buy-cart-total span').html((v.price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
-        });
       });
 
 
