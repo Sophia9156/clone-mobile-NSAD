@@ -234,6 +234,13 @@ let dataChange = function(){
 
 
 
+          let productPrice = v.price;
+          let finalPrice;
+          let showFinalPrice = function(){
+            finalPrice = productPrice*(quantity.m + quantity.l + quantity.xl);
+            $('.buy-cart-total span').html(finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+          };
+
           // 구매 탭에서 사이즈 클릭했을 때
           let buyLi = function(selectedSize,size){
             $('.buy-cart-size-add').append(`
@@ -249,7 +256,7 @@ let dataChange = function(){
                   </button>
                 </div>
                 <div class="selected-size-price">￦ <span>${v.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span></div>
-                <div class="selected-size-delete">
+                <div class="selected-size-delete" data-value="${selectedSize.attr('data-value')}">
                   <span></span>
                   <span></span>
                 </div>
@@ -257,6 +264,7 @@ let dataChange = function(){
             `);
             $('.buy-cart-size-add li').addClass('active');
           };
+
 
           $('.buy-cart-size-btn button').on('click',function(){
             if($('.buy-cart-size-add li').length < $('.buy-cart-size-btn button').length){
@@ -270,13 +278,15 @@ let dataChange = function(){
                 quantity.xl = 1;
                 buyLi($(this),quantity.xl);
               }
+              
             }
 
-            
             // 최종 가격 보여주기
-            $('.buy-cart-total span').html((v.price*(quantity.m + quantity.l + quantity.xl)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+            showFinalPrice();
             // 사이즈 버튼 활성화
             $(this).addClass('active');
+            $('.buy-cart-size-add li').addClass('active');
+
 
 
             // 구매 수량 조절
@@ -292,6 +302,7 @@ let dataChange = function(){
                   if(quantity.xl > 1){quantity.xl -= 1;}
                   $('.selected-size-quantity[data-value="XL [06]"]').html(quantity.xl);
                 }
+                showFinalPrice();
               }              
             });
             $('.quantity-more').each(function(k,v){
@@ -306,6 +317,7 @@ let dataChange = function(){
                   quantity.xl += 1;
                   $('.selected-size-quantity[data-value="XL [06]"]').html(quantity.xl);
                 }
+                showFinalPrice();
               };
             });
 
@@ -313,57 +325,51 @@ let dataChange = function(){
             // 구매 수량 delete 했을 때
             $('.selected-size-delete').each(function(k,v){
               v.onclick = function(){
-                $(this).parent().removeClass('active');
-                quantity = {m: 0, l: 0, xl: 0};
-                $('.buy-cart-total span').html((v.price*quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+                $(this).parent().detach();
+                if($(this).attr('data-value') == 'M [04]'){
+                  quantity.m = 0;
+                  $('.buy-cart-size-btn button[data-value="M [04]"]').removeClass('active');
+                }else if($(this).attr('data-value') == 'L [05]'){
+                  quantity.l = 0;
+                  $('.buy-cart-size-btn button[data-value="L [05]"]').removeClass('active');
+                }else if($(this).attr('data-value') == 'XL [06]'){
+                  quantity.xl = 0;
+                  $('.buy-cart-size-btn button[data-value="XL [06]"]').removeClass('active');
+                }
+                showFinalPrice();
               }
-              // ******여기서부터 사이즈 버튼 클래스 제거하는 거 해야됨*******
+              
             });
+
+
+            // 수량 선택하고 BUY NOW or CART 버튼 눌렀을 때
+            // 로컬 스토리지에 구매수량 남기기
+            $('.buy-btn').on('click',function(){
+                window.location.href = "login.html";
+            });
+            $('.cart-btn').on('click',function(){
+                localStorage.buyItem = localStorage.productIdx;
+                localStorage.M = quantity.m;
+                localStorage.L = quantity.l;
+                localStorage.XL = quantity.xl;
+                
+
+              $('.before-cart-wrap').addClass('active');          
+              $('header .cart span').text(localStorage.buyquantity);
+
+              $('.cart-cancle').on('click',function(){
+                $('.before-cart-wrap').removeClass('active');
+              });
+
+              $('.cart-move').on('click',function(){
+                window.location.href = "cart.html";
+              })
+            });
+
           });
-
-
-
 
         }
         $('section').html(productDetail);
-
-
-
-
-        // 수량 선택하고 BUY NOW or CART 버튼 눌렀을 때
-        // 로컬 스토리지에 구매수량 남기기
-        $('.buy-btn').on('click',function(){
-          if(quantity.m>=1){
-            window.location.href = "login.html";
-            totalBuyQuantity += Number(quantity);
-            localStorage.buyquantity = totalBuyQuantity;
-            localStorage.buyImageSrc = v.thumb;
-            localStorage.buyProductName = v.name;
-            localStorage.buyPrice = v.price;
-            localStorage.buySize = selectSize;
-          }
-        });
-        $('.cart-btn').on('click',function(){
-          if(quantity>=1){
-            totalBuyQuantity += Number(quantity);
-            localStorage.buyquantity = totalBuyQuantity;
-            localStorage.buyImageSrc = v.thumb;
-            localStorage.buyProductName = v.name;
-            localStorage.buyPrice = v.price;
-            localStorage.buySize = selectSize;
-            
-            $('.before-cart-wrap').addClass('active');          
-            $('header .cart span').text(localStorage.buyquantity);
-          };
-
-          $('.cart-cancle').on('click',function(){
-            $('.before-cart-wrap').removeClass('active');
-          });
-
-          $('.cart-move').on('click',function(){
-            window.location.href = "cart.html";
-          })
-        });
 
 
 

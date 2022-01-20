@@ -9,6 +9,7 @@ let dataChange = function(){
       // 상품 목록 뿌리기 & SHOW MORE 눌렀을 때 상품 더 뿌리기
       const newCollection = data.newCollection;
 
+
       let productList = '', clickNum = 0, i = 0;
       let productListAdd = function(){
         if(i < newCollection.length - 1){

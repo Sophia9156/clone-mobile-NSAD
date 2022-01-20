@@ -51,7 +51,10 @@ function headerFun(){
 
   // 장바구니 아이콘에 담긴 아이템 개수 표시
   const cartBtn = document.querySelector('.cart span');
-  if(localStorage.buyquantity){cartBtn.textContent = localStorage.buyquantity;}
-
+  if(localStorage.buyquantityM || localStorage.buyquantityL || localStorage.buyquantityXL){
+    cartBtn.textContent = Number(localStorage.buyquantityM) + Number(localStorage.buyquantityL) + Number(localStorage.buyquantityXL)
+  }else{
+    cartBtn.textContent = '0';
+  };
 }
 
