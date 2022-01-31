@@ -1,0 +1,27 @@
+{
+  "name": "clone-mobile-nsad",
+  "version": "1.0.0",
+  "description": "-KO-  안녕하세요, 프론트엔드 개발을 공부 중인 이수현입니다.  첫 프로젝트로 제작한 NSAD* 모바일 웹앱 클론 코딩 페이지 입니다.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sophia9156/clone-mobile-NSAD.git"
+  },
+  "keywords": [],
+  "author": "Sophia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sophia9156/clone-mobile-NSAD/issues"
+  },
+  "homepage": "https://github.com/Sophia9156/clone-mobile-NSAD#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
