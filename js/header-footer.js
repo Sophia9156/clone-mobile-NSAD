@@ -50,11 +50,17 @@ function headerFun(){
 
 
   // 장바구니 아이콘에 담긴 아이템 개수 표시
+  let totalItems = JSON.parse(localStorage.getItem('buyItems'));
+
   const cartBtn = document.querySelector('.cart span');
-  if(localStorage.buyquantityM || localStorage.buyquantityL || localStorage.buyquantityXL){
-    cartBtn.textContent = Number(localStorage.buyquantityM) + Number(localStorage.buyquantityL) + Number(localStorage.buyquantityXL)
+
+  let total = 0;
+  totalItems.forEach(function(buyItem){
+    total += Number(buyItem.M) + Number(buyItem.L) + Number(buyItem.XL);
+  });
+  if(localStorage.buyItems){
+    cartBtn.textContent = total;
   }else{
     cartBtn.textContent = '0';
   };
 }
-

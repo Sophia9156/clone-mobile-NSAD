@@ -59,7 +59,7 @@
           margin-right: 5px;
         }
       }
-      input:checked + label{
+      #selectAll:checked + label{
         span{color: #000;}
       }
     }
@@ -90,7 +90,7 @@
               margin-right: 5px;
             }
           }
-          input:checked + label{
+          .selectOne:checked + label{
             span{color: #000;}
           }
         }

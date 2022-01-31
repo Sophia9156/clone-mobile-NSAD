@@ -1,21 +1,14 @@
+// 장바구니에 담긴 상품이 있을 때 / 없을 때
+let buyItems = [];
 
-// 장바구니에 담긴 상품이 없을 때
-$('.empty').addClass('active');
-$('.filled').removeClass('active');
-
-
-// 장바구니에 담긴 상품이 있을 때
-if(Number(localStorage.M) > 0 || Number(localStorage.L) > 0 || Number(localStorage.XL) > 0){
+if(localStorage.buyItems){
   $('.empty').removeClass('active');
   $('.filled').addClass('active');
+  buyItems = JSON.parse(localStorage.getItem('buyItems'));
+}else{
+  $('.empty').addClass('active');
+  $('.filled').removeClass('active');
 }
-
-
-let list = [
-  {name: localStorage.buyItem, size:localStorage.getItem('M'), qty: localStorage.M},
-  {name: localStorage.buyItem, size:localStorage.getItem('L'), qty: localStorage.L},
-  {name: localStorage.buyItem, size:localStorage.getItem('XL'), qty: localStorage.XL}
-]
 
 
 // 장바구니에 상품 localStorage로 추가하기
@@ -24,111 +17,183 @@ let dataChange = function(){
     url: 'js/data.json',
     success: function(data){
       
-      let buyProduct = '';
       $.each(data.newCollection,function(k,v){
-        list.forEach(function(buyItem){
-          if(buyItem == v.name){
-            buyProduct += `
-            <li class="product-unit">
-              <div class="unit-top">
-                <div class="select-one">
-                  <input type="checkbox" id="selectOne" name="selectOne">
-                  <label for="selectOne">
-                    <span class="material-icons-outlined">
-                      check_circle
-                    </span>
-                  </label>
-                </div>
-                <figure><img src="${v.thumb}" alt=""></figure>
-                <div class="product-info">
-                  <p class="product-name">${v.name}</p>
-                  <p class="product-size">사이즈 : ${buyItem.size}</p>
-                  <p class="product-quantity">수량 : <span class="qty">${buyItem.qty}</span> 개</p>
-                  <p class="product-price">￦<span class="price">${v.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span></p>
-                </div>
-                <div class="product-unit-close">
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-              <p class="unit-bottom">기본-금액별배송비 ￦0 (택배-선결제)</p>
-            </li>`;
+        buyItems.forEach(function(buyItem){
+          if(buyItem.item == v.name){
+            let buyLi = function(size,quantity){
+              $('.product-list-wrap').append(`
+                <li class="product-unit">
+                  <div class="unit-top">
+                    <div class="select-one">
+                      <input type="checkbox" class="selectOne" name="selectOne">
+                      <label for="selectOne">
+                        <span class="material-icons-outlined">
+                          check_circle
+                        </span>
+                      </label>
+                    </div>
+                    <figure><img src="${v.thumb}" alt=""></figure>
+                    <div class="product-info">
+                      <p class="product-name">${v.name}</p>
+                      <p class="product-size">사이즈 : <span class="size">${size}</span></p>
+                      <p class="product-quantity">수량 : <span class="qty">${quantity}</span> 개</p>
+                      <p class="product-price">￦<span class="price">${v.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')}</span></p>
+                    </div>
+                    <div class="product-unit-close">
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                  <p class="unit-bottom">기본-금액별배송비 ￦0 (택배-선결제)</p>
+                </li>
+              `);
+            };
+            if(buyItem.M > 0){
+              buyLi(Object.keys(buyItem)[1],buyItem.M);
+              if(buyItem.L > 0){
+                buyLi(Object.keys(buyItem)[2],buyItem.L);
+                if(buyItem.XL > 0){
+                  buyLi(Object.keys(buyItem)[3],buyItem.XL);
+                }
+              }else{
+                if(buyItem.XL > 0){
+                  buyLi(Object.keys(buyItem)[3],buyItem.XL);
+                }
+              }
+            }else{
+              if(buyItem.L > 0){
+                buyLi(Object.keys(buyItem)[2],buyItem.L);
+                if(buyItem.XL > 0){
+                  buyLi(Object.keys(buyItem)[3],buyItem.XL);
+                }
+              }else{
+                if(buyItem.XL > 0){
+                  buyLi(Object.keys(buyItem)[3],buyItem.XL);
+                }
+              }
+            }
           }
         });
+      });
+
+      
+
+      let totalQuantity = 0, totalPrice = 0;
+
+      function totalFun(){
+        totalQuantity = 0;
+        $('.selectOne').each(function(k,v){
+          if($(v).prop('checked')){
+            totalQuantity += Number($('.qty').eq(k).text());
+          };
+        });
+        $('#totalQuantity').html(totalQuantity);
+      };
+      function priceFun(){
+        totalPrice = 0;
+        $('.selectOne').each(function(k,v){
+          if($(v).prop('checked')){
+            totalPrice += Number($('.qty').eq(k).text())*Number($('.price').eq(k).text().replace(",",""));
+          };
+        });
+        $('#totalPrice').html(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+        $('#totalPriceSum').html(totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+      };
+
+      // 전체상품 체크, 최종 결정 창 표시
+      window.onload = function(){
+        $('#selectAll').prop('checked', true);
+        $('.selectOne').prop('checked', true);
+
+        totalFun();
+        priceFun();
+      };
+
+      $('#selectAll').on('click',function(){
+        if($('#selectAll').prop('checked')){
+          $('.selectOne').prop('checked', true);
+        }else{
+          $('.selectOne').prop('checked', false);
+        }
+
+        totalFun();
+        priceFun();
       });
       
-      $('.product-list-wrap').html(buyProduct);
-
-
-      // 전체상품 체크
-      let checkBoxes = document.querySelectorAll('#selectOne');
-      let totalSum = '';
-      selectAll.onclick = function(){
-        selectOne.checked = this.checked;
-        if(checkBox.checked){
-          $('#totalQuantity').html();
-          $('#totalPrice').html(localStorage.buyPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
-          totalSum = localStorage.buyPrice;
-          $('#totalPriceSum').html(totalSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
-        }else{
-          $('#totalQuantity').html('0');
-          $('#totalPrice').html('0');
-          $('#totalPriceSum').html('0');
-        }
-      };
-      checkBoxes.forEach(function(v){
+      $('.select-one label').each(function(k,v){
         v.onclick = function(){
-          selectAll.checked = this.checked;
-          if(checkBox.checked){
-            $('#totalQuantity').html();
-            $('#totalPrice').html(localStorage.buyPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
-            totalSum = localStorage.buyPrice;
-            $('#totalPriceSum').html(totalSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
+          if($('.selectOne').eq(k).prop('checked')){
+            $('.selectOne').eq(k).prop('checked', false);
+            $('#selectAll').prop('checked', false);
           }else{
-            
+            $('.selectOne').eq(k).prop('checked', true);
           }
-        }
-      });
 
-      // 최종 결정 창 표시
-      window.onload = function(){
-        selectAll.checked = true;
-        checkBoxes.forEach(function(v){
-          v.checked = selectAll.checked;
-          if(checkBox.checked){
-            $('#totalQuantity').html();
-            $('#totalPrice').html(localStorage.buyPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
-            totalSum = localStorage.buyPrice;
-            $('#totalPriceSum').html(totalSum.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','));
-          }
-        });
-      }
+          totalFun();
+          priceFun();
+        };
+      });
 
 
       // 선택 상품 삭제
-      $('.select-delete').on('click',function(){
-        if(selectOne.checked){
-
-          $('header .cart span').html();
-
-          buyProduct = '';
-          $('.product-list-wrap').html(buyProduct);
-          $('#totalQuantity').html('0');
-          $('#totalPrice').html('0');
-          $('#totalPriceSum').html('0');
-        }
+      $('.select-delete button').on('click',function(){
+        $('.selectOne').each(function(k,v){
+          if($(v).prop('checked')){
+            buyItems.forEach(function(buyItem){
+              if($('.product-name').eq(k).text() == buyItem.item){
+                if($('.size').eq(k).text() == 'M'){
+                  buyItem.M = 0;
+                  if(buyItem.M == '0' && buyItem.L == '0' && buyItem.XL == '0'){
+                    buyItems.splice(buyItems.indexOf(buyItem),1)
+                  };
+                }else if($('.size').eq(k).text() == 'L'){
+                  buyItem.L = 0;
+                  if(buyItem.M == '0' && buyItem.L == '0' && buyItem.XL == '0'){
+                    buyItems.splice(buyItems.indexOf(buyItem),1)
+                  };
+                }else if($('.size').eq(k).text() == 'XL'){
+                  buyItem.XL = 0;
+                  if(buyItem.M == '0' && buyItem.L == '0' && buyItem.XL == '0'){
+                    buyItems.splice(buyItems.indexOf(buyItem),1)
+                  };
+                }
+              }
+              $('.product-unit').eq(k).remove();
+              localStorage.setItem('buyItems',JSON.stringify(buyItems));
+            });
+          };
+        });
+        
+        totalFun();
+        priceFun();
       });
 
       // 개별 상품 삭제
-      $('.product-unit-close').on('click',function(){
-
-        $('header .cart span').html();
-
-        buyProduct = '';
-        $('.product-list-wrap').html(buyProduct);
-        $('#totalQuantity').html('0');
-        $('#totalPrice').html('0');
-        $('#totalPriceSum').html('0');
+      $('.product-unit-close').each(function(k,v){
+        $(v).on('click',function(){
+          buyItems.forEach(function(buyItem){
+            if($('.product-name').eq(k).text() == buyItem.item){
+              if($('.size').eq(k).text() == 'M'){
+                buyItem.M = 0;
+                if(buyItem.M == '0' && buyItem.L == '0' && buyItem.XL == '0'){
+                  buyItems.splice(buyItems.indexOf(buyItem),1)
+                };
+              }else if($('.size').eq(k).text() == 'L'){
+                buyItem.L = 0;
+                if(buyItem.M == '0' && buyItem.L == '0' && buyItem.XL == '0'){
+                  buyItems.splice(buyItems.indexOf(buyItem),1)
+                };
+              }else if($('.size').eq(k).text() == 'XL'){
+                buyItem.XL = 0;
+                if(buyItem.M == '0' && buyItem.L == '0' && buyItem.XL == '0'){
+                  buyItems.splice(buyItems.indexOf(buyItem),1)
+                };
+              }
+            }
+          });
+          localStorage.setItem('buyItems',JSON.stringify(buyItems));
+          $('.product-unit').eq(k).remove();
+        });
       });
       
     }

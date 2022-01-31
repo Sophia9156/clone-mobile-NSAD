@@ -40,7 +40,7 @@ table {
 
 .popup {
   position: absolute;
-  z-index: 11;
+  z-index: 999;
   text-align: center;
 }
 

@@ -336,7 +336,7 @@ table {
   margin-right: 5px;
 }
 
-.filled .select-wrap .select-all input:checked + label span {
+.filled .select-wrap .select-all #selectAll:checked + label span {
   color: #000;
 }
 
@@ -388,7 +388,7 @@ table {
   margin-right: 5px;
 }
 
-.filled .product-list-wrap .product-unit .unit-top .select-one input:checked + label span {
+.filled .product-list-wrap .product-unit .unit-top .select-one .selectOne:checked + label span {
   color: #000;
 }
 
